@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>{{ title }}</title>
+	<style>
+		html		{ font-size:16px; font-family:"Roboto","Segoe ui",Verdana,Arial; }
+		body		{ color:#000000; background-color:#ffffff; margin:10px; }
+		h1			{ font-size:1.6rem; font-weight:500; }
+		h2			{ font-size:1.4rem; font-weight:500; }
+		h3			{ font-size:1.2rem; font-weight:500; }
+		h4			{ font-size:1.0rem; font-weight:500; }
+		a:link		{ color:#1E90FF; text-decoration:none; }
+		a:visited	{ color:#1E90FF; }
+		a:hover		{ color:#FF0000; }
+		a:active	{ color:#00BFFF; }
+	</style>
+</head>
+<body>
+<h1>{{ h1|safe }}</h1>
+{{ body|safe }}
+{% block content %}{% endblock %}
+{% block scripts %}{% endblock %}
+</body>
+</html>

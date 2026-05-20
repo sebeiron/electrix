@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Electrix</title>
+	<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTgwIiBoZWlnaHQ9IjU4MCIgdmlld0JveD0iMCAwIDU4MCA1ODAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNTgwIiBoZWlnaHQ9IjU4MCIgcng9IjgwIiByeT0iODAiIGZpbGw9IiMyQUI5MzQiLz4KCTxwYXRoIGQ9Im0zMTAgMTQwYzMuNC0xLjkgNi45LTEuMyAxMC44IDEuOSAzLjMgMi43IDMuNyAzLjYgMy43IDcuNSAwIDIuNS0uNyA3LjMtMS40IDEwLjctMS40IDUuOS0zIDEzLjItNi4yIDI3LjktLjggMy44LTIuMSA5LjktMi45IDEzLjgtLjggMy44LTIuMiAxMC4xLTMgMTQtLjggMy44LTIuMiAxMC0zIDEzLjctLjcgMy44LTIuMSAxMC40LTMgMTQuOHMtMi4zIDEwLjMtMy4xIDEzLjFjLTIuMSA3LjQtMS44IDkuMyAxLjMgMTAuNSAxLjYuNiAxMi4xLjkgMjYuMy44IDE5LjYtLjEgMjQuMS4xIDI2LjYgMS40IDUuMiAyLjcgNyA5LjkgMy43IDE0LjctLjkgMS40LTggOS4yLTE1LjcgMTcuNC0xOS4zIDIwLjUtMTkuNCAyMC42LTI1LjYgMjcuMi0zIDMuMy05LjUgMTAuMi0xNC41IDE1LjQtOC44IDkuMy0yMS40IDIyLjgtNTQuNSA1OC0yOS45IDMxLjktMzEuMSAzMy0zNS42IDMzLTIuNi0uMS00LjktLjktNi45LTIuNS0yLjgtMi4zLTMtMi45LTIuOS05LjMuMS0zLjcuOC05LjQgMS43LTEyLjcuOC0zLjMgMi4zLTkuNiAzLjItMTRzMi4zLTEwLjcgMy0xNCAyLjEtOS42IDMtMTQgMi4yLTEwLjcgMi45LTE0YzEuMy01LjcgMy4yLTE0LjMgNi4xLTI4IC43LTMuMyAxLjgtOC42IDIuNS0xMS43IDIuMS05LjEgMi45LTguOC0yNS42LTguOC0xMy42IDAtMjUuNC0uNC0yNi45LTEtNC4zLTEuNi03LjUtNS45LTcuNS0xMCAwLTQuMiAyLjctNy43IDE5LjQtMjUuMSA1LjUtNS44IDEyLjYtMTMuMiAxNS42LTE2LjUgMy0zLjIgOS41LTEwLjIgMTQuNS0xNS40IDguNC04LjkgMjkuMi0zMSA0Ni41LTQ5LjQgMTkuOC0yMS4yIDI0LjktMjYuNiAzMC43LTMyLjYgMy40LTMuNiA4LjEtOC42IDEwLjUtMTEuMSAyLjQtMi42IDUuMi01LjEgNi4zLTUuN3ptLTc2LjUtOTguMWM3LjQtMS4xIDE4LjEtMS45IDIzLjctMiAxMC0uMSAxMC40IDAgMTMuNSAyLjggMyAyLjYgMy4zIDMuNSAzLjIgOC4xIDAgNC40LS41IDUuNS0yLjkgNy40LTIuNiAyLjEtNC4zIDIuNC0xNiAyLjktMzcuOCAxLjUtNjkgMTAuNi0xMDUuNSAzMC41LTIxLjkgMTEuOS00Ny43IDM0LjEtNjQgNTQuOS0zLjQgNC4zLTYuNyA4LjUtNy4zIDkuMy0xLjkgMi4zLTExIDE2LjItMTIuNiAxOS0xMi40IDIyLjYtMTguNiAzNy45LTI0LjQgNjAuNS0xMC45IDQyLjMtOC4xIDk0LjIgNy4zIDEzMy41IDEuMiAzIDIuNSA2LjcgMyA4LjEuNCAxLjQgMS4yIDMuNCAxLjggNC41LjYgMSAyLjUgNSA0LjMgOC45IDYuNiAxNC4yIDIyLjIgMzcuOSAzMi44IDQ5LjkgMTUuNiAxNy42IDM5LjMgMzcuMiA1OC42IDQ4LjMgNS40IDMuMiAyNC45IDEyLjYgMzAuNSAxNC44IDIuNS45IDYuMSAyLjMgOCAzLjEgNS4yIDIgMjMuMyA2LjkgMzIuNSA4LjcgMjguMSA1LjcgNjEuMyA1LjYgODguNSAwIDEyLjQtMi42IDMyLjktOC42IDQxLTEyLjEgMS45LS45IDQuOS0yLjEgNi41LTIuOCA0LjEtMS43IDE2LjQtNy44IDIwLjYtMTAuMyAxLjktMS4xIDUuMS0yLjkgNy4xLTQgMi4xLTEuMSA3LTQuNCAxMS03LjMgMjkuNy0yMS40IDQ4LjgtNDIuMiA2OC41LTc0LjMgMi41LTQgMTMuMi0yNi4yIDE0LjgtMzAuNSA2LjctMTguNCA5LjEtMjcgMTItNDIuOSAxLjgtOS41IDEuNS0xMC4yLTQuNS0xMi0yMi4zLTYuNS0zOC44LTIyLjktNDUuMS00NC45LTEuNy02LjEtMS45LTEwLjItMS45LTQ0Ljh2LTM4LjFsMi42LTIuNGMyLjMtMi4yIDMuNi0yLjQgMTIuNy0yLjggNi4yLS4yIDEwLjUtLjcgMTAuOS0xLjUuNC0uNi44LTExLjIuOC0yMy42LjEtMjAuNS4yLTIyLjcgMS45LTI0LjcgNC4xLTQuOSAxMi44LTUuMyAxNy0uOSAyIDIuMSAyLjEgMy40IDIuMyAyNi4xbC4zIDI0IDE2LjkuM2MxMi45LjIgMTcuMS0uMSAxNy44LTEgLjQtLjcuOC0xMS40LjgtMjMuNiAwLTIwLjkuMS0yMi42IDItMjUuMyAyLjUtMy40IDcuNS00LjYgMTIuMS0zIDYuMSAyLjEgNi4zIDMuMiA2LjkgMjkuMWwuNSAyMy41IDkuNy41YzE1LjYuOCAxNS43IDEgMTUuOCAzOS4xIDAgMzcuNy0xLjUgNDkuNC04LjQgNjIuMy03LjMgMTMuOC0yMi4xIDI2LjMtMzYuMyAzMC42LTExLjUgMy42LTExLjUgMy42LTEzIDExLjUtMy44IDE5LjctNC44IDIzLjgtOS4xIDM3LjUtMTMuNyA0My00MS43IDg1LjEtNzUuMiAxMTMuMS0zLjYgMy02LjcgNS42LTcgNS45LTIuMSAyLjItMTkuOSAxNC44LTIzIDE2LjMtLjguNC0yLjggMS42LTQuNSAyLjctMTMuOCA4LjgtMzkuOCAyMC4zLTU3LjUgMjUuMy0yNi4yIDcuNC00NS43IDEwLjItNzEgMTAuMi0zMi4yIDAtNTYuNS00LjUtOTItMTctNS42LTItMzMtMTUuMy0zNS0xNy0uOC0uNy0zLjEtMi4xLTUtMy4xLTYuNy0zLjYtMjcuMi0xOS0zNi40LTI3LjMtMjYuOS0yNC41LTQ5LjItNTUuNi02Mi4xLTg2LjgtMi4xLTQuOC00LjEtOS43LTQuNi0xMC44cy0yLTUuNi0zLjQtOS45Yy0xNC41LTQ0LjgtMTYuNC05MC40LTUuOC0xMzUuNiAyLjItOS42IDYuNS0yNC4zIDguMy0yOC41LjUtMS4xIDEuOS00LjUgMy4xLTcuNSAxLjktNC45IDEzLjgtMjkuMyAxNi40LTMzLjggMi4yLTMuOCAxNC41LTIxLjkgMTYuNy0yNC42IDEwLjYtMTMuMyAyMS4zLTI0LjcgMzQuNS0zNi43IDcuNC02LjggMjkuMi0yMi45IDMxLTIyLjkuNCAwIDEuNC0uNiAyLjItMS40IDEuNy0xLjQgNy42LTQuOCAxNy42LTEwIDcuNy00IDI2LjQtMTEuOSAzMy41LTE0LjEgMy0xIDcuMS0yLjMgOS0zIDguMi0yLjkgMjIuOS02IDQxLTguNHoiIGZpbGw9IiNmZmYiLz4KPC9zdmc+">
+	<style>
+		:root {
+			--bg-gradient: linear-gradient(to right, #288030, #2AB934, #ccdc24);
+		}
+		html							{ background-color:#fff }
+		body							{ box-sizing:content-box; margin:0; padding:0; color:#000000; font-size:16px; font-family:"Roboto","Segoe ui",Verdana,Arial; background-color:#ffffff }
+		h1								{ margin:0; padding:0; text-align:center; color:#fff; font:normal 1.8em Arial, Verdana,sans-serif; letter-spacing:0.05em }
+		h2								{ font-size:1.5em; font-weight:600; margin:0; padding:.25em }
+		h3 ,h4							{ font-size:1.2em; font-weight:600; margin:0 0 .5em 0 }
+		h4								{ font-size:1.0em; font-style:italic; margin-top:.5em }
+		input, select					{ box-sizing:border-box; height:2em; font-family:"Segoe UI Mono W10 Regular",Cousine,Consolas,monospace; font-size:.9em; padding:2px 0 2px .25em }
+		input[type=number]				{ text-align:right }
+		time-picker						{ border-radius:3px }
+		select							{ font-family:inherit }
+		select:disabled					{ border-width:0; background-color:inherit; color:#000; opacity:1; -webkit-appearance:none; -moz-appearance:none }
+
+		circle							{ stroke:#0b70c0; fill:#0b70c0; }
+		polyline						{ stroke:#2196f3; stroke-width:2px; fill:none }
+		line							{ stroke:#2196f3; stroke-width:1px }
+		line.y100						{ stroke:#aaa }
+		line.y50						{ stroke:#ddd }
+		line.y25						{ stroke:#ddd; stroke-dasharray:10,10 }
+		kbd								{ margin-right:3px; border:1px solid #d0d0d0; background:#f4f4f4; padding:2px 4px; border-radius:4px }
+		kbd:last-of-type				{ padding:2px 12px; background:#f4f4f4 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAaCAYAAABsONZfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCA1LjEuMTITAUd0AAAAuGVYSWZJSSoACAAAAAUAGgEFAAEAAABKAAAAGwEFAAEAAABSAAAAKAEDAAEAAAACAAAAMQECABEAAABaAAAAaYcEAAEAAABsAAAAAAAAAGAAAAABAAAAYAAAAAEAAABQYWludC5ORVQgNS4xLjEyAAADAACQBwAEAAAAMDIzMAGgAwABAAAAAQAAAAWgBAABAAAAlgAAAAAAAAACAAEAAgAEAAAAUjk4AAIABwAEAAAAMDEwMAAAAADZp5qVybcLXwAAAElJREFUOE9jYMAE/9EF0AETGp+gBnTwn1RNJGlgJEUxOiDJJmQwMBpHwQgBGJGNnglxAQyNxACK0uR/BkozITGAZCfSXgMDNg0A9sYb662fAa4AAAAASUVORK5CYII=) center 5px no-repeat }
+		button							{ margin:1em .5em; padding:.25em; white-space:nowrap; font-size:1em }
+		.right							{ text-align:right }
+		.price							{ color:#2196f3 }
+		.high, .failure, .error			{ color:#e03008 }
+		.low,  .success					{ color:#00AA00 }
+		.errorx							{ color:#FF0000; border-color:#FF0000; background-color:#ffebeb }
+		.icon-clock						{ padding:4px 4px 4px 44px; line-height:1em; border-radius:3px; background:transparent url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAgMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTEgMTAgOC04IDIgMi02IDYgNiA2LTIgMi04LTh6bTI0IDEwYTEwIDEwIDAgMTEwLTIwIDEwIDEwIDAgMDEwIDIwem0wLTJhOCA4IDAgMTAwLTE2IDggOCAwIDAwMCAxNnptLTItNy41OXYtNi40MWgydjUuNTlsNC40NSA0LjQ1LTEuNDEgMS40MS01LjA0LTUuMDR6Ii8+PC9zdmc+) 2px center / 33px no-repeat }
+		.icon-clock:hover				{ cursor:pointer; background-color:#e7f2fd }
+		.noscroll						{ overflow:hidden }
+		.failure						{ display:none }
+
+		notif-msg						{ display:block; margin:2em 0 0 0; padding:.5em .5em .5em 2em; border-radius:.3em; font-size:.9em; background:#fff url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAyMiAyMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMSIgY3k9IjExIiByPSIxMCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9IiMyMTk2ZjMiIGZpbGw9IiNmZmYiLz48bGluZSBjbGFzcz0ibmZvIiB4MT0iMTEiIHkxPSI2IiB4Mj0iMTEiIHkyPSIxNiIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2U9IiMyMTk2ZjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWRhc2hhcnJheT0iLjEsIDQsIDEyIi8+PC9zdmc+DQo=) .5em .75em / 1.2em 1.2em no-repeat; }
+		notif-msg.info					{ color:#00529B; background-color:#BDE5F8 }
+
+		header 							{ position:fixed; top:0; width:100%; height:3em; display:flex; justify-content:center; align-items:center; padding:.25em; background-color:#ffffff; background:var(--bg-gradient) }
+		over-lay						{ pointer-events:auto; position:fixed; display:block; top:0; left:0; width:100%; height:100%; visibility:hidden; opacity:.6; background:#000; transition:.2s }
+		aside							{ position:absolute; top:0; left:0;
+
+			table.keyboard {			  border:1px solid #a0a0a0; border-radius:6px; background-color:#fff;
+				td						{ padding:12px 4px }
+				tr:nth-child(n+2) td	{ border-top:1px solid #ddd }
+				tr td:nth-child(2)		{ padding-right:24px }
+				td:nth-child(3) kbd		{ background-position-y: -12px }
+			}
+
+			aside-icon {				  display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border:.4em solid transparent; border-radius:50%; position:relative; top:.4em; left:.4em; z-index:999;
+				svg :is(circle,line),
+				svg :is(path,rect)		{ transition:all 0.2s; transform-origin:center }
+				.icon-info {
+					circle				{ fill:#fff }
+					line				{ stroke-width:3; stroke:#000 }
+					line.bck, line.slh	{ opacity:0 }
+		  		 }
+		  		.icon-cfg {			  	  fill:#fff;
+					 path				{ opacity:1 }
+					 line				{ opacity:0; stroke:#000; stroke-width:150px }
+		  		}
+
+				&:hover					{ background-color:#ffffff88 }
+			}
+			aside-icon, aside-icon svg	{ top:.75em; width:24px; height:24px }
+			aside-content {				--width:-24em; pointer-events:auto; position:fixed; box-sizing:border-box; top:0; left:0; max-width:calc(100vw - 112px); width:calc(abs(var(--width))); transform:translateX(var(--width)); height:100%; border:2px solid #666; margin-top:0; padding:3em 1.25em 1.25em 1.25em; background-color:#eee; transition:transform 250ms ease-in-out;
+				section					{ display:grid; justify-content:left; align-items:center; grid-template-columns:auto auto; gap:.75em; padding:0;
+					span				{ display:flex; align-items:center; white-space:nowrap }
+					abbr				{ margin-left:.5em; }
+					var					{ font-style:normal; font-weight:normal; white-space:nowrap }
+					button				{ background-color:#ddd; margin:.5em 0; border-width:1px; border-radius:3px }
+					button:hover		{ background-color:#d0d0d0 }
+					>h2					{ grid-column:1 / 3; margin-top:.5rem }
+				}
+			}
+
+			&.onRight {					  left:unset; right:0;
+				aside-icon				{ left:unset; right:10px;position:fixed }
+				aside-content			{ left:unset; right:0; --width:36em }
+				&.open aside-icon		{ transform:translateX(-15px) }
+			}
+
+			&.open {
+				aside-content			{ transform:translateX(0) }
+				&.onRight aside-content	{ transform:translateX(0) }
+				.icon-info circle		{ opacity:0 }
+				.icon-info line.nfo		{ opacity:0 }
+				.icon-info line.bck		{ opacity:1; transform:rotate(180deg) }
+				.icon-info line.slh		{ opacity:1; transform:rotate(180deg) }
+				.icon-info *			{ stroke:#000 }
+				.icon-cfg path			{ opacity:0; transform:rotate(180deg)}
+				.icon-cfg line.bck		{ opacity:1; transform:rotate(195deg) }
+				.icon-cfg line.slh		{ opacity:1; transform:rotate(165deg) }
+				& aside-icon .icon-cfg	{ fill:#000 }
+				& aside-icon:hover		{ background-color:#66666633 }
+			}
+		}
+		#notif-cfg_save					{ visibility:hidden; height:100%; background: transparent url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAyNCAxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMiA2aDEybC00LjUgLTQuNW0wIDkgbDQuNS00LjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJBQjkzNCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxhbmltYXRlTW90aW9uIHBhdGg9Ik0gMCAwIGg4IGgtOCIgZHVyPSIxcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48L3BhdGg+PC9zdmc+) right center / 36px 18px no-repeat; }
+
+		#error-fetch					{ margin:4em 8em; padding:1em; border:2px solid #f6a4a6; border-radius:.5em; background-color:#fee2e2; font-size:1.5em; text-align:center }
+
+
+		graph-wrap						{ display:flex; flex-flow:column nowrap; margin-top:3em; padding:16px; background:var(--bg-gradient) }
+		#graph							{ box-shadow: 1px 2px 3px #ccc; border-top:1px solid #ddd; padding:4px; background-color:#fff }
+
+		#background {
+			rect.bg0					{ fill:#88888833 }
+			rect.bg1					{ fill:#88888811 }
+			rect.bg2					{ fill:none }
+		}
+		#axes {
+			text						{ text-anchor:end; fill:#000; font-weight:600; font-size:10px }
+			text.date					{ text-anchor:middle; font-size:1em }
+			text.subdate				{ text-anchor:middle; font-size:.75em }
+			abscissa text				{ text-anchor:middle }
+			text.sub					{ fill:#888; font-weight:400 }
+			line.main					{ stroke:#000; stroke-width:2px }
+		}
+		#datapoints {
+			rect.active					{ fill:#f3216744 }
+			circle						{ r:0;
+				&.active				{ stroke:#f32167; stroke-width:4px; r:2 }
+				&.current				{ fill:#00ffff; stroke-width:2px; r:4 }
+			}
+		}
+		#timeframes {
+			rect.periodError			{ fill: transparent; stroke:#e03008; stroke-dasharray: 5 5  }
+		}
+		graph-ribbon {					  display:flex; justify-content:space-between;
+			div							{ display:flex; flex-wrap:wrap; justify-content:center; align-items:start }
+			>div:first-child,
+			>div:first-child div		{ flex-direction:row-reverse }
+			button						{ min-width:5em; padding:.25em; }
+		}
+		boxinfo-spot {					  display:block; align-self:start; margin-top:1em; font-size:.8em; white-space:nowrap; background:white; border:1px solid #333; border-radius:3px; box-shadow:0 3px 6px rgba(0,0,0,0.14), 0 3px 6px rgba(0,0,0,0.23);
+			*							{ font-family:"Segoe UI Mono W10 Regular",Cousine,Consolas,monospace }
+			p							{ font-weight:600; text-align:center; background-color:#000000; color:#ffffff; padding:2px 0; margin:0; border-radius:2px 2px 0 0 }
+			section						{ display:grid; grid-template-columns:auto auto; justify-content:space-between; gap:5px; padding:4px 8px }
+			label						{ font-weight:600; text-align:right }
+			value-unit					{ display:grid; grid-template-columns:auto auto; justify-content:end; align-items:baseline; gap:5px }
+			span						{ text-align:right }
+			em							{ font-size:.8em; text-align:right; font-style:normal }
+		}
+
+		#results						{ display:none; align-self:center; height:3em; margin:.5em 0 0 0; padding:.5em 1em; font-size:1.25em; border:1px solid #00000044;border-radius:.3em; background:#ffffffee; text-align:center;
+			strong						{ font-weight:500 }
+			&:has(.error)				{ display:block }
+		}
+
+		main							{ margin:0; padding:0 1em 1em 1em }
+
+		table.calc {					  border-collapse:separate; border-spacing:.5em;
+			td							{ padding-top:2px }
+			select						{ padding:2px }
+			button						{ width:100%; margin:0 }
+		}
+		calcs-row {					  	  display:grid; grid-template-columns:auto auto; gap:0 1em; margin-top:1em; margin:0; padding:0;
+			h2							{ display:none; border:1px solid #666; border-radius:11px 11px 0 0; background-color:#f0f0f0 }
+			h3							{ margin:.5em }
+		}
+		calc-wrap						{ background-color:#fafafa; padding:.5em; border:1px solid #666; border-radius:11px; box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px }
+
+
+		boxinfo-wrap					{ display:grid; justify-items:center; gap:2em}
+		boxinfo-curr, dayly-card		{ border:1px solid #cccccc; border-radius:11px; background: linear-gradient(to bottom, #fff 50%, #eef2f3 100%); box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px }
+		boxinfo-curr {					  display:flex; flex-direction:column; margin:1em; padding:.25em 2em; text-align:center;background: linear-gradient(to bottom, #fff 50%, #eef2f3 100%); box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+			p, em						{ margin:0 0 .5em 0; font-size:.8em }
+			h4							{ margin-top:0 }
+			b							{ font-size:1.2em; color:#2196f3 }
+		}
+		dayly-cards-wrap {
+										  display:flex; justify-content:center; gap:1em; margin:1em 0;
+			dayly-card					{ display:flex; flex-direction:column; flex:1 1 400px;max-width:200px; padding:.5em 1em }
+			p							{ margin:0 0 .5em 0 }
+			span						{ font-weight:500; font-size:1.1em }
+		}
+
+		body.mobile {
+										  font-size:38px;
+			input, select				{ padding-right:.25em }
+			notif-msg					{ font-size:1em; }
+			dayly-card					{ max-width:unset }
+			aside-icon:hover			{ background-color:transparent }
+			aside-icon, aside-icon svg	{ top:.5em; width:54px; height:54px }
+			aside.onRight.open aside-icon{ transform:translateX(0) }
+			#error-fetch				{ margin:4em 1em }
+			#notif-cfg_save				{ background-size:108px }
+			#info-nav					{ display:none }
+			graph-ribbon button			{ margin:.25em }
+			boxinfo-spot section		{ padding:16px }
+			.icon-clock					{ padding-left:88px; background-size:88px }
+			calcs-row					{ gap:0 }
+			calcs-row h2				{ display:block }
+			calcs-row h2.active			{ border-width:8px 2px 0 2px; border-top-color:#2cb934; background-color:#fafafa; color:#288030 }
+			calc-wrap					{ display:none; border-top-width:0; border-radius:0 0 11px 11px }
+			calc-wrap h3				{ display:none }
+			calc-wrap.active			{ display:block; grid-column-start:span 2 }
+			xcalc-wrap:nth-of-type(2)	{ display:none }
+			#axes text.date				{ transform:translate(0, .5em); }
+			#axes text.subdate			{ transform:translate(0, 1.2em); }
+			#results					{ height:4em }
+			pre { display:none }
+		}
+		#btn-cfg_reset					{ display:none }
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Electrix</h1>
+		<over-lay></over-lay>
+		<aside id="panel-cfg">
+			<aside-icon><svg class="icon-cfg" width="18" height="18" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M500 698c110 0 198-89 198-198 0-110-89-198-198-198-110 0-198 89-198 198s88 198 198 198M904 594c17 29 41 52 68 68L876 829c-90-51-204-21-255 68-17 29-25 61-25 93H403c-1-103-84-187-186-187-34 0-66 9-93 25L28 662c89-52 120-166 69-255-18-30-42-53-70-68l96-167c90 52 204 21 255-68 17-30 25-62 25-94H597c0 104 83 188 186 188 34 0 66-9 94-25l96 166c-90 52-121 166-69 255Zz"/><line class="bck" x1="80" y1="257" x2="920" y2="743"/><line class="slh" x1="80" y1="743" x2="920" y2="257"/></svg></aside-icon>
+			<aside-content>
+				<section>
+					<h2>Charging settings</h2>
+					<var>Hourly charge		 		</var><span><input id="chrg_hourly"	 type="number" min="0" max="100"/> <abbr>%<abbr></span>
+					<var>Default final charge		</var><span><input id="dflt_chrg_cap"	 type="number" min="0" max="100"/> <abbr>%<abbr></span>
+					<var>Default period start time	</var><time-picker id="dflt_time_start" value="23:00"/></time-picker>
+					<var>Default period end time	</var><time-picker id="dflt_time_end"	 value="07:00"/></time-picker>
+					<h2>Visualization</h2>
+					<var>Graph						</var><select id="vis_graph"><option value="24">Next 24 hours</option><option value="48">Full (48 hours)</option></select>
+					<var></var><var></var>
+					<div id="notif-cfg_save">		</div><button id="btn-cfg_save">Save</button>
+				</section>
+				<notif-msg class="info">The hourly charge is the number of battery percentage gained during one hour of charging.</notif-msg>
+				<button id="btn-cfg_reset">reset</button>
+			</aside-content>
+		</aside>
+		<aside id="panel-info" class="onRight">
+			<aside-icon><svg class="icon-info" width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><mask id="infoMask" mask-type="luminance"><circle cx="11" cy="11" r="11" fill="#fff"/><line class="nfo" x1="11" y1="5" x2="11" y2="17" stroke-width="4" stroke="#000" stroke-linecap="round" stroke-dasharray=".1, 6, 12"/></mask><rect x="0" y="0" width="100%" height="100%" fill="#fff" mask="url(#infoMask)" /><line class="bck" x1="4" y1="4" x2="18" y2="18" stroke="#000"/><line class="slh" x1="4" y1="18" x2="18" y2="4" stroke="#000"/></svg></aside-icon>
+			<aside-content>
+				<div id="info-nav">
+					<h2>Graph navigation</h2>
+					<p>Use the buttons below the graph to select/highlight a pricespot before or after the current one.</p><p>You can also use the keyboard to navigate within the chart.</p>
+					<table class="keyboard">
+						<colgroup><col/><col/><col class="right"/><col/></colgroup>
+						<tr><td><kbd></kbd></td><td>Move the selection 15 mn backward</td>
+							<td><kbd></kbd></td><td>Move the selection 15 mn forward</td></tr>
+						<tr><td><kbd>Ctrl</kbd> <kbd></kbd></td><td>Move the selection 1 hour backward</td>
+							<td><kbd>Ctrl</kbd> <kbd></kbd></td><td>Move the selection 1 hour forward</td></tr>
+						<tr><td><kbd>Shift</kbd> <kbd></kbd></td><td>Move the selection 6 hours backward</td>
+							<td><kbd>Shift</kbd> <kbd></kbd></td><td>Move the selection 6 hours forward</td></tr>
+					</table>
+				</div>
+				<h2>Information</h2>
+				<p>The end charge must be greater than the current one; if not, the charging values will be modified automatically to ensure there is at least 1% difference between the initial and the final charge.<br>
+					This correction is indicated by an orange pulse effect.</p>
+				<h2>Privacy</h2>
+				<p>The hourly charge and default values are saved locally on your browser private data storage.<br>
+					Absolutely no data is shared nor saved anywhere else.</p>
+			</aside-content>
+		</aside>
+	</header>
+
+	<graph-wrap>
+		<svg id="graph" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+			<g id="background"></g>
+			<g id="timeframes"></g>
+			<g id="axes"></g>
+			<g id="datapoints"></g>
+		</svg>
+		<graph-ribbon>
+			<div><div><button id="btn-15"  >◀ 15 mn </button><button id="btn-60">◀ 1 hour</button></div><div><button id="btn-360">◀ 6 hours</button></div></div>
+				<boxinfo-spot>
+					<p id="spot-title">---</p>
+					<section>
+						<label> time:</label><value-unit><span id="spot-time">--:-- → --:--</span></value-unit>
+						<label>price:</label><value-unit><span id="spot-price">---</span><em>öre/kWh</em></value-unit>
+					</section>
+				</boxinfo-spot>
+			<div><div><button id="btn+15"  >15 mn ▶</button><button id="btn+60">1 hour ▶</button></div><div><button id="btn+360">6 hours ▶</button></div></div>
+		</graph-ribbon>
+	<div id="results"></div>
+	</graph-wrap>
+
+
+	<main>
+		<boxinfo-wrap>
+			<p id="error-fetch-day" class="failure">⚠ Could not retrieve today's data.</p>
+			<boxinfo-curr>
+				<em>Current price</em>
+				<p><b id="curr-price"class="price">---</b> öre/kWh</p>
+				<p id="curr-time">--:-- → --:--</p>
+			</boxinfo-curr>
+		</boxinfo-wrap>
+
+
+		<calcs-row>
+			<h2 class="active">Lowest cost period</h2>
+			<h2>Period cost</h2>
+			<calc-wrap class="active">
+				<h3>Lowest cost period</h3>
+				<table class="calc">
+					<tr><td colspan="5"><b>EV charging</b></td></tr>
+					<tr><td>from</td><td><input id="chrg_start"	type="number" min="0" max="100" value="0"/> <abbr>%</abbr></td><td>to</td><td><input id="chrg_end"   type="number" min="1" max="100"/> <abbr>%</abbr></td><td></td></tr>
+					<tr><td></td><td colspan="2">Period duration</td><td><time-picker id="chrg_duration"></time-picker></td><td></td></tr>
+					<tr><td colspan="5"><b>Time frame</b></td></tr>
+					<tr><td>from </td><td colspan="2"><select id="calc_lwst-fday"></select></td><td><time-picker id="calc_lwst-ftime" value=""></time-picker></td><td><i class="icon-clock" id="calc_lwst-now"></i></td></tr>
+					<tr><td>until</td><td colspan="2"><select id="calc_lwst-tday"></select></td><td><time-picker id="calc_lwst-ttime" value=""></time-picker></td><td></td></tr>
+					<tr><td></td><td colspan="3"><button id="btn-calc_lwst">Find</button></td><td></td></td></tr>
+				</table>
+			</calc-wrap>
+			<calc-wrap>
+				<h3>Period cost</h3>
+				<table class="calc">
+					<tr><td>from </td><td><select id="calc_cost-fday"></select></td><td><time-picker id="calc_cost-ftime" value=""></time-picker></td><td><i class="icon-clock" id="calc_cost-now"></i></td></tr>
+					<tr><td>until</td><td><select id="calc_cost-tday"></select></td><td><time-picker id="calc_cost-ttime" value=""></time-picker></td><td></td></tr>
+					<tr><td></td><td colspan="2"><button id="btn-calc_cost">Calculate</button></td><td></td></td></tr>
+			</table>
+			</calc-wrap>
+		</calcs-row>
+
+		<dayly-cards-wrap>
+			<dayly-card id="day0-card">
+				<h3 id="day0-date"></h3>
+				<h4>Lowest price</h4>
+				<p><span id="day0-low_price" class="low">---</span> öre/kWh</p>
+				<p id="day0-low_times">---</p>
+				<h4>Highest price</h4>
+				<p><span id="day0-high_price" class="high">---</span> öre/kWh</p>
+				<p id="day0-high_times">---</p>
+			</dayly-card>
+			<dayly-card id="day1-card">
+				<h3 id="day1-date"></h3>
+				<h4>Lowest price</h4>
+				<p><span id="day1-low_price" class="low">---</span> öre/kWh</p>
+				<p id="day1-low_times">---</p>
+				<h4>Highest price</h4>
+				<p><span id="day1-high_price" class="high">---</span> öre/kWh</p>
+				<p id="day1-high_times">---</p>
+			</dayly-card>
+		</dayly-cards-wrap>
+		<p id="error-fetch" class="failure">NO DATA AVAILABLE</p>
+	</main>
+<script>
+	"use strict";
+
+	const DATA  = {{ data|safe }};
+
+
+	//══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+	// GLOBAL VARIABLES AND CLASSES
+	//══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+
+	const MINS_IN_DAY	= 60*24;
+	const DATA_MERGED	= [];
+	const DATA_MINUTES	= [];
+	const DATES			= [];
+	const C				= Object.freeze({ action: 'color:#AA00AA',	 info: 'color:#00AAAA',		success: 'color:#00AA00',		event: 'color:#FF7800',		error: 'color:#B22200',		value: 'color:#0842a0', timeframe:'#ddffff88' , period:'#ddff0040', periodError:'#e0300840' });
+	const K = {
+		padLeft		: 28,			timeStart	: '00:00',
+		padVert		: 20,			timeEnd		: '23:59',
+		svgGraphPad : 4,			duration	: '02:30',
+		cgfPanelId	: 'panel-cfg',
+	};
+	const G	= {
+		spotsCount	: 0,		dayStart	: 0,
+		currTime	: null,		dayEnd		: 1,
+		currNdx		: null,		fullDates	: [],
+		activeSpot	: null,		dayLabels	: [],
+		activeCrcl	: null,		cyMin		: 0,
+		activeNdx	: null,		cyMax		: 0,
+		missingDate	: false,	cyLen		: 0,
+		cpm			: 0,		isMobile	: /android|iphone|kindle|ipad/i.test(navigator.userAgent),
+	}
+
+	customElements.define("time-picker",class t extends HTMLElement{static #a=':host{display:grid;padding:.2em;grid-template-columns:1.5em .5em 1.5em;align-items:center;gap:.1em;width:min-content;border:1px solid #000;font-size:.9em;font-family:"Segoe UI Mono W10 Regular",Cousine,Consolas,monospace;background-color:#fff;span{font-size:inherit;font-family:inherit;font-weight:500}input{font-size:inherit;font-family:inherit;color:inherit;background:transparent;border-width:0}input:first-child{text-align:right}input:focus-visible{outline:none}input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{display:none;margin:0}}';static #b=RegExp("^(\\d?\\d):(\\d?\\d)$");static #c=t=>t.toString().padStart(2,"0");#d={hr:0,mn:0};#e="00:00";#f="00";#g="00";#h=0;constructor(){super()}connectedCallback(){this.attachShadow({mode:"open"});let e=t.#a,i=document.createElement("style");for(let s of(i.textContent=e,this.#f=Object.assign(document.createElement("input"),{id:"hr",type:"number",value:this.#f,min:"0",max:"23"}),this.#g=Object.assign(document.createElement("input"),{id:"mn",type:"number",value:this.#g,min:"0",max:"59"}),this.shadowRoot.appendChild(this.#f),this.shadowRoot.appendChild(Object.assign(document.createElement("span"),{innerHTML:":"})),this.shadowRoot.appendChild(this.#g),this.shadowRoot.appendChild(i),this.hasAttribute("tabindex")?(this.#f.tabIndex=this.getAttribute("tabindex"),this.#g.tabIndex=this.getAttribute("tabindex")):(this.#f.tabIndex=0,this.#g.tabIndex=0),this.removeAttribute("tabindex"),[this.#f,this.#g]))s.addEventListener("input",t=>this.#i(s)),s.addEventListener("focus",t=>s.select()),s.addEventListener("keydown",t=>this.#j(s,t));this.value=this.getAttribute("value")||"0:0"}#j(e,i){if("ArrowRight"==i.key&&"hr"==e.id){if(3==++this.#h)return this.#h=0,this.#g.focus()}else if("ArrowLeft"==i.key&&"mn"==e.id){if(-3==--this.#h)return this.#h=0,this.#f.focus()}else this.#h=0}#i(s){let n="hr"==s.id?23:59,h=parseInt(s.value);if(isNaN(h)){s.value=t.#c(this.#d[s.id]);return}h<0&&(h=0),h>n&&(h=n),s.value=t.#c(h),this.#e=`${this.#f.value}:${this.#g.value}`,h!=this.#d[s.id]&&(this.#d[s.id]=h,this.dispatchEvent(new Event("change",{bubbles:!0,cancelable:!0})))}set value(e){if("string"!=typeof e)throw TypeError(`${e} is not a string`);let i=e.match(t.#b);if(!i)throw RangeError(`Invalid time format for "${e}". Expecting HH:mm with or without leading 0s.`);let s=parseInt(i[1]),n=parseInt(i[2]),h="";if(s>23&&(h+=`\nHours value "${s}" exceeds 23.`),n>59&&(h+=`\nMinutes value "${n}" exceeds 59.`),h.length>0)throw RangeError("Invalid values:"+h);this.#f.value=t.#c(s),this.#g.value=t.#c(n),this.#e=`${this.#f.value}:${this.#g.value}`}get value(){return this.#e}focus(){this.#f.focus(),this.#f.select()}});
+
+	class Size { constructor(width, height) { this.w = width; this.h = height; } set(width, height) { this.w = width; this.h = height; } }
+
+	class IsoDate extends Date {
+		constructor(date) {
+			date ? super(date) : super();
+			this.dateTime= this.toLocaleString('sv-SE', { timeZone: 'Europe/Stockholm' });
+			[this.date, this.time] = this.dateTime.split(' ');
+			this.hrMn = this.time.slice(0, 5);
+		}
+		longFormat() {
+			return this.toLocaleString('en-us', { timeZone: 'Europe/Stockholm', weekday: 'long', month: 'long', day: 'numeric' });
+		}
+		shiftDay(n) {
+			const d = new Date(this.date);
+			d.setDate(d.getDate()+n)
+			return new IsoDate(d).date;
+		}
+	}
+
+
+	if (G.isMobile) {
+		document.body.classList.add('mobile');
+		console.log('%cMobile device detected', C.event);
+	}
+
+
+	//══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+	// BOOTSTRAP
+	//══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+
+	document.addEventListener('DOMContentLoaded', () => {
+
+				const _addMinutes = (x) => { for (var i=0; i<15; i++) DATA_MINUTES.push(x.price) };
+
+		// const [currDay, currHrMn] = updateCurrentTime();
+		// const currQrt = qCnt(currHrMn);
+		// console.log(currDay, currHrMn, currQrt, DATA_MERGED[currDay*96+currQrt]);
+
+		let minPrice = Infinity;
+		let maxPrice = 0, d = 0;
+		let lowHighs = [null, null];
+		for (const [n, date] of Object.keys(DATA).entries()) {
+			if (!DATA[date]) {
+				G.missingDate= date;
+				G.dayEnd	 = 0;
+				console.log(`%c⚠ %cNo data for ${relativeDay(date)} (${date})`, C.event, C.error);
+				continue;
+			}
+			DATES[d] = date;
+			let maxNdx = 0,	minNdx =0, count = 0;
+			let maxP   = 0, minP   = Infinity;
+			for (const [i, spot] of DATA[date].entries()) {
+				if (spot === null) continue;
+				if (spot.price < minPrice) minPrice = spot.price;
+				if (spot.price > maxPrice) maxPrice = spot.price;
+				if (spot.price < minP	 ) { minP = spot.price; minNdx = i; }
+				if (spot.price > maxP	 ) { maxP = spot.price; maxNdx = i; }
+				spot['id']		= i;
+				spot['minutes'] = 15*i;
+				const copy= {...spot}
+				DATA_MERGED.push(copy);
+				copy['id']		+= d*96;
+				copy['minutes'] += d*MINS_IN_DAY;
+				_addMinutes(copy);
+			}
+			minNdx		+= d*96; maxNdx += d*96;
+			lowHighs[d]	 = [minNdx, maxNdx];
+			G.spotsCount+= 96; ///// <<<<<<<<<<<<<< can be improved?
+			d++;
+		}
+
+		console.log(`  50: ${DATA_MINUTES[50]  } / 4.42`); console.log(` 123: ${DATA_MINUTES[123] } / 5.85`); console.log(` 666: ${DATA_MINUTES[666] } / 5.94`); console.log(`1234: ${DATA_MINUTES[1234]} / 112.19`); console.log(`2879: ${DATA_MINUTES[2879]} / 65.51`);
+		if (!DATA_MERGED.length) {
+			['graph-wrap', 'boxinfo-wrap', 'calcs-row', 'dayly-cards-wrap'].forEach(elem => document.querySelector(elem).style.display = 'none');
+			document.getElementById('error-fetch').style.display = 'block';
+			return;
+		}
+
+		G.dayLabels	 = DATES.map(d => relativeDay(d));
+		G.fullDates	 = DATES.map(d => new IsoDate(d).longFormat());
+		console.log(...coloredVars('', C.info, {'from': G.dayLabels[0], 'to': G.dayLabels[1]}));
+		console.log(`%cMetrics for ${DATES[0]} and ${DATES[1]}`, C.action);
+		G.cyMin	= Math.min(Math.floor(minPrice/25)*25, -25);
+		G.cyMax	= Math.ceil(maxPrice/25)*25;
+		G.cyLen	= G.cyMax - G.cyMin;
+		console.log(...coloredVars('', null, { ' min →   max ': `${minPrice} → ${maxPrice}`, '\ncyMin → cyMax ': `${G.cyMin } → ${G.cyMax}`}));
+
+		updateCurrentTime();
+		SidePanels.init();
+		ActiveSpotInfo.init();
+		CurrentSpotInfo.init();
+		Graph.init();
+		Results.init();
+		ChargingTimeCalculator.init();
+		LowestCostPeriodCalculator.init();
+		PeriodCostCalculator.init();
+		Tabs.init();
+		Config.init();
+
+		window.  addEventListener('keydown', handleKeys);
+		document.getElementById('btn-15' )	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowLeft'   })); });
+		document.getElementById('btn-60' )	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowLeft',  ctrlKey: true})); });
+		document.getElementById('btn-360')	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowLeft',  shiftKey: true})); });
+		document.getElementById('btn+15' )	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowRight'  })); });
+		document.getElementById('btn+60' )	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowRight', ctrlKey: true})); });
+		document.getElementById('btn+360')	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowRight', shiftKey: true})); });
+		document.querySelectorAll('input[type=number]').forEach(item => item.addEventListener('click', e=> item.select()));
+		// document.getElementById('calc2'	 )	.addEventListener('click', periodCost);
+
+		console.log(lowHighs);
+		Graph.draw();
+		CurrentSpotInfo.update();
+		DaysLowHigh.populate(lowHighs);
+		setDayOptions(LowestCostPeriodCalculator);
+		setDayOptions(PeriodCostCalculator);
+
+
+		if (G.missingDate != G.currTime.date && G.currNdx) {
+			ActiveSpotInfo.update(G.currNdx);
+		}
+		else {
+			document.getElementById('error-fetch-day').style.display = 'block';
+			CurrentSpotInfo.hide();
+			LowestCostPeriodCalculator.hideApplyCurrentTime();
+			PeriodCostCalculator.hideApplyCurrentTime();
+		}
+
+		if (!DATA_MERGED.length) {
+			LowestCostPeriodCalculator.disable();
+			PeriodCostCalculator.disable();
+		}
+
+		// document.getElementById('calc_cost-ftime').value='23:37';
+		// document.getElementById('calc_cost-tday' ).value=G.dayEnd;
+		// document.getElementById('calc_cost-ttime').value='01:28';
+
+		// SidePanels.open(K.cgfPanelId);
+		// setTimeout(() => LowestCostPeriodCalculator.run(),  500);
+		// setTimeout(() => PeriodCostCalculator.run(),  500);
+	});
+
+	//══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+	// UTILITY FUNCTIONS
+	//══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+
+	const pad	= (n)	=> 	n.toString().padStart(2, '0');
+	const hmSplt= (s)	=> 	s.split(':').map(x => parseInt(x));
+	const hm2mn	= (s)	=> 	{ const p = hmSplt(s); return p[0]*60+p[1] };
+	const mn2hm	= (n)	=> 	{ const x = n%1440; const p = [Math.floor(x/60), x%60]; return `${pad(p[0])}:${pad(p[1])}`};
+	const mn2day= (n)	=>	Math.floor(n/MINS_IN_DAY);
+	const qCnt	= (x)	=> 	Math.ceil((typeof x==='number' ? x : hm2mn(x))/15);
+	const qSpan = (n,b) =>	`${b?'from ':''}${DATA_MERGED[n].time} ${b?'to':'→'} ${DATA_MERGED[n+1]?.time||'00:00'}`;
+	const coloredVars 	=	(t,c,d) => { t='%c'+t; c=[c];for (const [k,v] of Object.entries(d)) {t+=` %c${k}:%c${v}`;c.push(C.info,C.value);} return [t,...c];};
+	const periodTotal	=	(a, b)	=> DATA_MINUTES.slice(a, b).reduce((t, v) => t + v, 0);
+	const titled		= 	(s) 	=> s[0].toUpperCase()+s.slice(1).toLowerCase();
+	const pulse 		=	(i,c)	=> { i.animate([{ boxShadow: '0 0 0 20px transparent' }, { boxShadow: `0 0 0 0 ${c}`}], {duration: 500, iterations: 1}); };
+
+	function relativeDay(date=null) {
+		const x = new IsoDate(date);
+		const d = new IsoDate();
+		if (x.date == d.date)	  		return 'today';
+		if (x.date == d.shiftDay(-1))	return 'yesterday';
+		if (x.date == d.shiftDay(+1))	return 'tomorrow';
+		return x.longFormat();
+	}
+
+	function setDayOptions(calculator) {
+		let txt ='';
+		for (const [i, date] of DATES.entries()) {
+			if (DATA[date]) txt+=`<option value="${i}">${G.dayLabels[i]}</option>`;
+		}
+		[calculator.fDay, calculator.tDay].forEach(input => {
+			input.innerHTML = txt;
+			G.missingDate && input.setAttribute('disabled', true);
+		});
+		calculator.fDay.value = G.dayStart;
+		calculator.tDay.value = G.dayEnd;
+	}
+
+	function updateCurrentTime() {
+		const now  = new IsoDate();
+		G.currTime = { day: now.date==DATES[1]?1:0,	date:now.date, hm: now.hrMn, hms: now.time }
+		if (DATES.includes(now.date)) G.currNdx = Math.floor(hm2mn(G.currTime.hm)/15)+96*G.currTime.day;
+		console.log(...coloredVars('Current time updated\n ', C.success, {date:G.currTime.date, 'day':G.currTime.day, time:G.currTime.hms, ndx: G.currNdx}));
+	}
+
+	function applyCurrentTime(obj) {
+		CurrentSpotInfo.update(false); // in case the timer had an issue or was paused by the browser
+		obj.fDay.value	= G.currTime.day;
+		obj.fTime.value	= G.currTime.hm;
+	}
+
+	function normalizeNumber(aInput, min=0, dfault=false) {
+		if (aInput.type != 'number') return true;
+		let corrected = false;
+		let val = parseInt(aInput.value||0);
+		if (val<min) {
+			corrected = true;
+			aInput.value = dfault||min;
+		}
+		else if (val>100) {
+			corrected = true;
+			aInput.value = 100;
+		}
+		else
+			aInput.value = val;
+		corrected && pulse(aInput, '#ff9800');
+		return !corrected;
+	}
+
+	//══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+	// HANDLER OBJETCS
+	//══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+
+	const Graph =  {
+
+		init: function() {
+			this.svg		= document.getElementById('graph');
+			this.background	= document.getElementById('background');
+			this.timeframes	= document.getElementById('timeframes');
+			this.axes		= document.getElementById('axes');
+			this.datapoints	= document.getElementById('datapoints');
+			this.SIZE		= { svg:null, dtpts:null, scale:null, dx:null, dy:null};
+			this.padX		= 0;
+			this.currSpot	= null;
+			this.svg.setAttribute('height',  Math.min(window.innerHeight, Math.max(G.cyLen, 520)+K.padVert*2)-K.svgGraphPad);
+			window.addEventListener('resize', () => this.draw() );
+		},
+
+		draw: function() {
+
+			const SIZE = this.SIZE
+			{ // Update size
+				// Calculate the available size for the SVG and the data points area, taking into account the wrapper's margin and padding
+				const wrapW	= parseInt(getComputedStyle(document.querySelector('graph-wrap')).width.slice(0,-2));
+				// Set the SVG size to fit the available space, but limit the height based on the data range (G.cyLen) plus vertical padding
+				SIZE.svg	= new Size(wrapW-K.svgGraphPad, this.svg.getAttribute('height'));
+				SIZE.dtpts	= new Size(SIZE.svg.w - K.padLeft -5, SIZE.svg.h - K.padVert*2);
+				SIZE.scale	= new Size(10+SIZE.dtpts.w/G.spotsCount, SIZE.dtpts.h/G.cyLen);
+				SIZE.dx		= SIZE.dtpts.w/(G.spotsCount+2);
+				SIZE.dy		= SIZE.dtpts.h/G.cyLen;
+				this.padX	= K.padLeft-SIZE.dx/2;
+				// Update the SVG attributes to reflect the new size and viewBox
+				this.datapoints.setAttribute('transform',`scale(1 -1) translate(${K.padLeft} -${SIZE.dtpts.h+K.padVert})`);
+				this.svg.setAttribute('width',   SIZE.svg.w);
+				this.svg.setAttribute('viewBox', `0 0 ${SIZE.svg.w} ${SIZE.svg.h}`);
+			};
+
+			{ // draw Axes
+				function __addText(num, classL, classT=null) {
+					const y= K.padVert + (G.cyMax-num)*SIZE.dy;
+					linTxt += `<line x1="${xL.a}" y1="${y}" x2="${xL.b}" y2="${y}" class="${classL}"/>`;
+					lgdTxt += `<text x="${xT}" y="${y+4}" ${classT?`class="${classT}"`:''}>${num}</text>`;
+				}
+
+				let num	  = G.cyMax;
+				let linTxt= '', lgdTxt= '';
+				let xL	  = {a: K.padLeft-5, b: K.padLeft+SIZE.dtpts.w+5};
+				let xT	  = K.padLeft-7;
+				while (num >= G.cyMin) {
+					if (num%100 === 0)		__addText(num, num==0? 'main' : 'y100');
+					else if (num%50 === 0)	__addText(num, 'y50');
+					else					__addText(num, 'y25', 'sub');
+					num-=25;
+				}
+				this.axes.innerHTML = `${linTxt}<line x1="${K.padLeft}" y1="0" x2="${K.padLeft}" y2="${SIZE.svg.h}" class="main"/>${lgdTxt}</g>`;
+			};
+
+			{ // draw Makers and Datapoints
+				const width	= SIZE.dx*4;
+				const padX	= this.padX+SIZE.dx, padXbg	 = this.padX+SIZE.dx/2;
+				let txtDtpts= '', txtDots = '',  txtBars = '';
+				let txtHr	= '', txtBg	  = '';
+				let bgClass	= 1;
+				let x		= SIZE.dx;
+				// txtBg 		+= `<rect x="${this.padX+SIZE.dx/2}" y="${0}" width="${x}" height="${SIZE.svg.h}" class="bg0"/>`;
+				txtBg		+= `<line x1="${padXbg+x}" y="0" x2="${padXbg+x}" y2="${SIZE.svg.h-K.padVert+5}" class="y50"/>`;
+				for (const [i, spot] of DATA_MERGED.entries()) {
+					const y		 = (spot.price-G.cyMin)*SIZE.dy;
+					txtDtpts	+= `${x},${y} ${x+SIZE.dx},${y} `; // without flat quarters: `${x},${y} `
+					txtDots		+= `<circle id="cspt${i}" cx="${x}" cy="${y}" r="2"/>`;
+					txtBars 	+= `<rect id="spt${i}" x="${x-1}" y="0" width="3" height="${SIZE.svg.h}" fill="transparent"/>`;
+					if (i%4==0) {
+						txtBg 	+= `<rect x="${padXbg+x}" y="0" width="${width+SIZE.dy}" height="${SIZE.svg.h}" class="bg${1+bgClass}"/>`;
+						txtHr 	+= `<text x="${padX+x}" y="${SIZE.svg.h-5}">${spot.time.slice(0,2)}</text>`;
+						bgClass	 = 1-bgClass;
+					}
+					if (spot.time=='12:00')
+						txtBg += `<line x1="${padXbg+x}" y="0" x2="${padXbg+x}" y2="${SIZE.svg.h-K.padVert+5}" class="y25"/>`;
+					x += SIZE.dx;
+				}
+				txtHr += `<text x="${ this.padX+x+SIZE.dx}" y="${SIZE.svg.h-5}">00</text>`;
+				x = this.padX+SIZE.dx+x/2
+				if (!G.missingDate)
+					txtBg += `<line x1="${x}" y="0" x2="${x}" y2="${SIZE.svg.h-K.padVert+5}" class="y100"/>`;
+
+				this.background.innerHTML = txtBg;
+				this.axes.innerHTML 	 += `<g class="abscissa">${txtHr}</g>`;
+				this.axes.innerHTML 	 += this.dayInfo(0, width)+this.dayInfo(1, width);
+				this.datapoints.innerHTML = `<polyline points="${txtDtpts.trim()}"/>${txtDots}${txtBars}`;
+				this.datapoints.querySelectorAll('rect').forEach(item => {
+					item.addEventListener('mouseover', () => ActiveSpotInfo.update(item));
+				});
+			};
+			this.updateCurrentSpot();
+		},
+
+		updateCurrentSpot: function () {
+			this.currSpot && this.currSpot.classList.remove('current');
+			this.currSpot =  document.getElementById(`cspt${G.currNdx}`);
+			this.currSpot?.classList.add('current');
+		},
+
+		dayInfo: function(n, width) {
+			if (n>=DATES.length) return '';
+			let x	= this.padX+width*(12+24*n);
+			let txt = `<text x="${x}" y="${14}" class="date">${titled(G.dayLabels[n])}</text>`;
+			if (G.dayLabels[n] != G.fullDates[n])
+				txt+= `<text x="${x}" y="${32}" class="subdate">${G.fullDates[n]}</text>`;
+			return txt;
+		},
+
+		resetTimeframes: function() {
+			this.timeframes.innerHTML = '';
+		},
+
+		addTimeframe: function(aMinsStart, aMinsEnd, aColor) {
+			const xStart= Math.floor(aMinsStart/15);
+			const xEnd	= Math.ceil(aMinsEnd/15);
+			const x = this.padX+xStart*this.SIZE.dx + this.SIZE.dx*2 -1;
+			const w = (xEnd-xStart)*this.SIZE.dx + this.SIZE.dx   +2;
+			const style = aColor===false ? 'class="periodError"' : `fill="${aColor}"`;
+			this.timeframes.innerHTML += `<rect x="${x}" y="0" width="${w}" height="${this.SIZE.svg.h}" ${style}/>`;
+		}
+	};
+
+	const ActiveSpotInfo = {
+
+		init: function() {
+			const box	= document.querySelector('boxinfo-spot');
+			if (!box) throw new ReferenceError('\nNo boxinfo-spot element found.');
+			this.wrapper= box;
+			this.title	= document.getElementById('spot-title');
+			this.time	= document.getElementById('spot-time');
+			this.price	= document.getElementById('spot-price');
+		},
+
+		update : function(x) {
+			// if (!x) return;
+			const [id, spot]= Number.isInteger(x) ? [x, document.getElementById(`spt${x}`)]: [parseInt(x.id.slice(3)), x];
+			const crcl		= document.getElementById(`c${spot.id}`);
+			if (G.activeSpot !== spot) {
+				G.activeSpot?.classList.remove('active');
+				G.activeCrcl?.classList.remove('active');
+				G.activeSpot = spot;
+				G.activeCrcl = crcl;
+				G.activeSpot.classList.add('active');
+				G.activeCrcl.classList.add('active');
+			}
+			this.title.textContent = G.dayLabels[Math.floor(id/96)];
+			this.time .textContent = qSpan(id);
+			this.price.textContent = DATA_MERGED[id].price;
+		}
+	};
+
+
+	const CurrentSpotInfo = {
+
+		init: function() {
+			const box	= document.querySelector('boxinfo-curr');
+			if (!box) throw new ReferenceError('\nNo info-curr element found.');
+			this.wrapper= box;
+			this.price	= document.getElementById('curr-price');
+			this.time	= document.getElementById('curr-time');
+			this.timer	= null;
+		},
+
+		update: function(verbose=true) {
+			updateCurrentTime();
+			if (G.missingDate == G.currTime.date || !G.currNdx) return;
+			this.price.innerText = DATA_MERGED[G.currNdx].price;
+			this.time .innerText = qSpan(G.currNdx);
+			Graph.updateCurrentSpot();
+
+			const info	=  {date:G.currTime.date, '#day':G.currTime.day, time:G.currTime.hm}
+			const [m, s]= hmSplt(G.currTime.hms.slice(3));
+			const delay = 900 - (m*60+s)%900;
+
+			clearTimeout(this.timer);
+			this.timer = setTimeout(()=>this.update(), delay*1000);
+			verbose && console.log(...coloredVars('  Next refresh', C.info, {'in': `${Math.floor(delay/60)}mn${pad(delay%60)}s`}));
+		},
+
+		hide: function() {
+			this.wrapper.style.display = 'none';
+		}
+
+	};
+
+
+	const Config = {
+
+		init: function() {
+			this.inputs	= {
+				speed	: document.getElementById('chrg_hourly'),
+				cap		: document.getElementById('dflt_chrg_cap'),
+				start	: document.getElementById('dflt_time_start'),
+				end		: document.getElementById('dflt_time_end'),
+				range	: document.getElementById('vis_graph'),
+			};
+			this.default = { speed: null, cap: null, start: K.timeStart, end: K.timeEnd, range:48  };
+			this.isSaved = false;
+			this.saveArw = document.getElementById('notif-cfg_save');
+			this.saveBtn = document.getElementById('btn-cfg_save');
+			document.getElementById('btn-cfg_reset').addEventListener('click', () => this.reset());
+			this.saveBtn.addEventListener('click', () => this.save());
+
+			this.populate();
+			this.invalidNum() ? SidePanels.open(K.cgfPanelId) : this.apply();
+
+			const check = (i, k) => { if (k=='Tab') return; normalizeNumber(this.inputs[i], 1, i=='cap'?50:1); this.invalidNum()};
+			['speed', 'cap'].forEach(id => {
+				this.inputs[id].addEventListener('keyup',	(e) => check(id, e.key) );
+				this.inputs[id].addEventListener('change',	(e) => check(id) );
+			});
+		},
+
+		populate: function() {
+			for (const key of Object.keys(this.inputs)) {
+				this.inputs[key].value = localStorage.getItem(key)||this.default[key];
+			}
+			this.invalidNum(true);
+		},
+
+		invalidNum: function(focus=false) {
+			let invalid = false;
+			['cap', 'speed'].forEach(id => {
+				if (!this.isNumberValid(this.inputs[id])) invalid = id;
+			});
+			this.saveBtn.disabled = !!invalid;
+			invalid && focus && this.inputs[invalid].focus()
+			return invalid;
+		},
+
+		isNumberValid: function (input) {
+			input.classList.remove('error');
+			if (!input.value || input.value<=0 || input.value>100) {
+				input.classList.add('error');
+				return false;
+			}
+			return true;
+		},
+
+		save: function() {
+			if (this.invalidNum(true)) return;
+			for (const key of Object.keys(this.inputs))
+				localStorage.setItem(key, this.inputs[key].value);
+			this.apply();
+			pulse(this.saveBtn, '#00AA00');
+			this.saveBtn.innerText = 'Saved !';
+			setTimeout(() => { this.saveBtn.innerText = 'Save' }, 2000);
+		},
+
+		apply: function() {
+			this.isSaved = true;
+			this.saveArw.style.visibility = 'hidden';
+			G.cpm = Math.min(parseInt(this.inputs.speed.value), 100)/60;
+			this.inputs.cap.value= Math.min(parseInt(this.inputs.cap.value), 100);
+			ChargingTimeCalculator.setChargeEnd(this.inputs.cap.value);
+			ChargingTimeCalculator.setDuration();
+			LowestCostPeriodCalculator.setTimes(this.inputs.start.value, this.inputs.end.value);
+		},
+
+		canClose: function () {
+			if (!this.invalidNum(true) && !this.isSaved) this.saveArw.style.visibility = 'visible';
+			return this.isSaved;
+		},
+
+		reset: function() {
+			localStorage.clear();
+			this.isSaved = false;
+			this.populate();
+		},
+	};
+
+
+	const SidePanels = {
+
+		init: function(overlay) {
+			this.openId	= null;
+			this.overlay= document.querySelector('over-lay');
+			this.panels	= Array.from(document.querySelectorAll('aside'));
+			this.overlay.addEventListener('click', () => this.closeAll());
+			document.querySelectorAll('aside-icon').forEach(item => {
+				item.addEventListener('click', (e) => this.handleIconClick(e));
+			});
+		},
+
+		handleIconClick: function(e) {
+			const panel = e.target.closest('aside');
+			this.toggle(panel);
+		},
+
+		toggle: function(panel) {
+			!panel.classList.contains('open') ? this.open(panel.id) : this.close(panel.id);
+		},
+
+
+		open: function(id) {
+			const ndx	= id==K.cgfPanelId ? 0 : 1;
+			const panel = this.panels[ndx];
+			if (ndx==1) {
+				if (!this.close(0)) return;
+			}
+			else
+				this.close(1);
+			ndx == 0 && Config.populate();
+			panel.classList.add('open');
+			panel.querySelector('aside-content').setAttribute('aria-expanded', true);
+			this.overlay.style.visibility = 'visible';
+			document.body.classList.add('noscroll');
+		},
+
+		close: function(id) {
+			const ndx = typeof id==='number' ? id : id==K.cgfPanelId ? 0 : 1;
+			if (ndx==0 && !Config.canClose()) return false;
+			this.panels[ndx].classList.remove('open');
+			this.panels[ndx].querySelector('aside-content').setAttribute('aria-expanded', false);
+			this.overlay.style.visibility = 'hidden';
+			document.body.classList.remove('noscroll');
+			return true;
+		},
+
+		closeAll: function() {
+			for (const panel of this.panels) {
+				if (!this.close(panel.id)) break;
+			}
+		},
+	};
+
+
+	const Tabs = {
+
+		init: function(overlay) {
+			if (!G.isMobile) return;
+			this.activId= 0;
+			this.tabs	= Array.from(document.querySelectorAll('calcs-row>h2'));
+			this.pages	= Array.from(document.querySelectorAll('calcs-row>calc-wrap'));
+			for (const [ndx, item] of this.tabs.entries()) {
+				item.addEventListener('click', () => this.handleTabClick(ndx));
+			}
+		},
+
+		handleTabClick: function(ndx) {
+			if (ndx == this.activId) return;
+			this.tabs[ this.activId].classList.remove('active');
+			this.pages[this.activId].classList.remove('active');
+			this.activId = ndx;
+			this.tabs[ this.activId].classList.add('active');
+			this.pages[this.activId].classList.add('active');
+		}
+	}
+
+
+	const Results = {
+
+		init: function() {
+			this.results = document.getElementById('results');
+		},
+
+		_setContent: function(text) {
+			this.results.style.display='block';
+			this.results.innerHTML=text;
+			window.scrollTo({top:0, left:0, behavior:"smooth"});
+		},
+
+		error: function(text) {
+			this._setContent(`<span class="error">${text}</span>`);
+		},
+
+		show: function(descPeriod, minsA, minsB, durMns, total) {
+			const tot	= total.toFixed(2);
+			const avg	= (total/durMns).toFixed(2);
+			console.log(...coloredVars('  ▶', C.success, {'total': tot, 'cost': avg}));
+			const dayA	= G.dayLabels[Math.floor(minsA/MINS_IN_DAY)];
+			const dayB	= G.dayLabels[Math.floor(minsB/MINS_IN_DAY)];
+			const hmA	= mn2hm(minsA);
+			const hmB	= mn2hm(minsB);
+			const txt	= dayA == dayB ? `<b>${dayA}</b> from <b>${hmA}</b> to <b>${hmB}</b>` : `from <b>${dayA}</b> at <b>${hmA}</b> to <b>${dayB}</b> at <b>${hmB}</b>`;
+			this._setContent(`${descPeriod}: ${txt}<br>Average cost: <strong class="price">${avg}</strong> (öre/kWh)`);
+		}
+
+	};
+
+
+	const ChargingTimeCalculator = {
+
+		init: function() {
+			this.chrgStart	= document.getElementById('chrg_start');
+			this.chrgEnd	= document.getElementById('chrg_end');
+			this.durat		= document.getElementById('chrg_duration');
+			this.typingTimer= null;
+			for (const item of [this.chrgStart, this.chrgEnd]) {
+				item.addEventListener('keyup', e => this.handleTyping(e, item) );
+			}
+		},
+
+		handleTyping: function(e, input) {
+			const isEditing = (isFinite(e.key)||e.key=='ArrowUp'||e.key=='ArrowDown'||e.key=='Enter'||e.key=='Delete'||e.key=='Backspace') && e.key!==' ';
+			if (normalizeNumber(input) && isEditing) {
+				clearTimeout(this.typingTimer);
+				this.typingTimer = setTimeout(() => this.setDuration(input), 1000);
+			}
+		},
+
+		setDuration: function(input) {
+			const valStart	= parseInt(this.chrgStart.value);
+			const valEnd	= parseInt(this.chrgEnd.value);
+			const doPulse	= !!input;
+			let   othr		= this.chrgEnd;
+			let   limit		= Math.max(valEnd-1, 0);
+
+			if (input != this.chrgStart) {
+				input = this.chrgEnd;
+				othr  = this.chrgStart;
+				limit = Math.min(valStart+1, 100);
+			}
+			if (normalizeNumber(othr)) {
+				const chrgDiff = valEnd - valStart;
+				if (chrgDiff<=0) {
+					input.value = limit;
+					return pulse(input, '#ff9800');
+				}
+				this.durat.value = mn2hm(Math.ceil(chrgDiff/G.cpm));
+				doPulse && pulse(this.durat, '#2196f3')
+			}
+			// else chrgEnd is already marked as invalid
+		},
+
+		setChargeEnd: function(n) {
+			this.chrgEnd.value = n;
+		},
+	}
+
+
+	const LowestCostPeriodCalculator = {
+
+		init: function() {
+			this.durat	= document.getElementById('chrg_duration');
+			this.fDay	= document.getElementById('calc_lwst-fday');
+			this.fTime	= document.getElementById('calc_lwst-ftime');
+			this.tDay	= document.getElementById('calc_lwst-tday');
+			this.tTime	= document.getElementById('calc_lwst-ttime');
+			document.getElementById('btn-calc_lwst').addEventListener('click', () => this.run());
+			document.getElementById('calc_lwst-now').addEventListener('click', () => applyCurrentTime(this))
+		},
+
+		setTimes: function(start, end) {
+			if (start)	this.fTime.value = start;
+			if (end)	this.tTime.value = end;
+		},
+
+		run: function () {
+			if (!this.durat.value) return;
+			Graph.resetTimeframes();
+			console.log('%cCalculating cheapest period', C.action);
+
+			const fDay	= parseInt(this.fDay.value);	const tDay	=parseInt(this.tDay.value);
+			const fTime = hm2mn(this.fTime.value);		const tTime = hm2mn(this.tTime.value);
+			const fMins = fTime+fDay*MINS_IN_DAY;		const tMins = tTime+tDay*MINS_IN_DAY;
+			const durMns= hm2mn(this.durat.value);
+			const frmMns= tMins-fMins;
+			logInterval('period', fDay, this.fTime.value, fMins, tDay, this.tTime.value, tMins, durMns );
+
+			if (frmMns<=0) {
+				Results.error('The time frame\'s end time must be later than its start time.');
+				this.tTime.focus()
+				return;
+			}
+			Graph.addTimeframe(fMins, tMins, C.timeframe);
+			if (frmMns<durMns) {
+				Results.error('The requested duration must not exceed the time frame.');
+				Graph.addTimeframe(fMins, fMins+durMns, false);
+				this.tTime.focus()
+				return;
+			}
+
+			let minsA	= 0, minsB =0, end = 0;
+			let bestTot = Infinity;
+			const limit = tMins-durMns;
+			for (let mins=fMins; mins<=limit; mins++) {
+				end = mins+durMns;
+				let total = periodTotal(mins, end);
+				if (total<bestTot) {
+					minsA	= mins;
+					minsB	= end;
+					bestTot	=total;
+				}
+			}
+			logInterval('timeframe', Math.floor(minsA/MINS_IN_DAY), mn2hm(minsA), minsA, Math.floor(minsB/MINS_IN_DAY), mn2hm(minsB), minsB, frmMns );
+			Results.show('Lower cost period', minsA, minsB, durMns, bestTot);
+			Graph.addTimeframe(minsA, minsB, C.period);
+		},
+
+		disable: function () {
+			document.getElementById('btn-calc_lwst').disabled = true;
+		},
+
+		hideApplyCurrentTime: function () {
+			document.getElementById('calc_lwst-now').style.display = 'none';
+		}
+	}
+
+
+	const PeriodCostCalculator = {
+
+		init: function() {
+			this.durat	= document.getElementById('calc_cost-duration');
+			this.fDay	= document.getElementById('calc_cost-fday');
+			this.fTime	= document.getElementById('calc_cost-ftime');
+			this.tDay	= document.getElementById('calc_cost-tday');
+			this.tTime	= document.getElementById('calc_cost-ttime');
+			this.fTime.value = K.timeStart;
+			this.tTime.value = K.timeEnd;
+			document.getElementById('btn-calc_cost').addEventListener('click', () => this.run());
+			document.getElementById('calc_cost-now').addEventListener('click', () => applyCurrentTime(this))
+		},
+
+		run: function() {
+			Graph.resetTimeframes();
+			console.log('%cCalculating period cost', C.action);
+
+			const fDay	= parseInt(this.fDay.value);	const tDay	=parseInt(this.tDay.value);
+			const fTime = hm2mn(this.fTime.value);		const tTime = hm2mn(this.tTime.value);
+			const fMins = fTime+fDay*MINS_IN_DAY;		const tMins = tTime+tDay*MINS_IN_DAY;
+			const durMns= tMins-fMins;
+			if (durMns<=0) {
+				Results.error('The period\'s end time must be later than its start time.');
+				return this.tTime.focus();
+			}
+
+			logInterval('period', fDay, this.fTime.value, fMins, tDay, this.tTime.value, tMins, durMns );
+			Results.show('Period', fMins, tMins, durMns, periodTotal(fMins, tMins));
+			Graph.addTimeframe(fMins, tMins, C.period);
+		},
+
+		disable: function () {
+			document.getElementById('btn-calc_cost').disabled = true;
+		},
+
+		hideApplyCurrentTime: function () {
+			document.getElementById('calc_cost-now').style.display = 'none';
+		}
+	}
+
+
+	const DaysLowHigh = {
+
+		populate: function(days) {
+			for (const [i, data] of days.entries()) {
+				if (data) {
+					document.getElementById(`day${i}-date`		).innerText = titled(G.dayLabels[i]);
+					document.getElementById(`day${i}-low_price` ).innerText = DATA_MERGED[data[0]].price.toFixed(2);
+					document.getElementById(`day${i}-high_price`).innerText = DATA_MERGED[data[1]].price.toFixed(2);
+					document.getElementById(`day${i}-low_times` ).innerText = qSpan(data[0], true);
+					document.getElementById(`day${i}-high_times`).innerText = qSpan(data[1], true);
+				}
+				else {
+					document.getElementById(`day${i}-card`).style.display = 'none';
+				}
+			}
+
+		}
+	}
+
+
+	function logInterval(name, fDay, fTime, fMins, tDay, tTime, tMins, durat) {
+		console.log(...coloredVars('', null,
+			{  'from day':fDay+1, time: fTime, 'minutes': fMins,
+			'\n   to day':tDay+1, timе: tTime, 'minutеs': tMins,
+			[`\n             ${name.padStart(9)} minutes` ]: durat}));
+	}
+
+	function logCost(total, cost) {
+		console.log(...coloredVars('  ▶', C.success, {'total': total, 'cost': cost}));
+	}
+
+
+	//══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+	// EVENTS HANDLERS
+	//══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+
+	function handleKeys(e) {
+		if (e.target != document.body && e.target != window) return;
+		let dx = 0;
+		switch (e.key) {
+			case 'ArrowLeft':	dx = -1; break
+			case 'ArrowRight':	dx = +1; break
+			default:			return;
+		}
+		// if (dx ==0) return;
+		let id = G.activeSpot ? parseInt(G.activeSpot.id.substring(3)) : Math.floor(G.spotsCount/2);
+		let steps = 1;
+		if (e.ctrlKey)	steps = 4;
+		if (e.shiftKey) steps = 24;
+		steps = Math.min(steps, G.spotsCount);
+		id += steps*dx;
+		if (id<0) id = G.spotsCount+id;
+		if (id>=G.spotsCount) id = id-G.spotsCount;
+		ActiveSpotInfo.update(id);
+	}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends "basic.flsk.html" %}
+{% block content %}
+<p><button onclick="copyToClipboard()">copy data to Cliptboard</button></p>
+<pre id="output">
+</pre>
+{% endblock %}
+{% block scripts %}
+<script>
+	const data = '{{ data|safe }}';
+	const output = document.getElementById('output');
+
+	function copyToClipboard() { navigator.clipboard.writeText(data); }
+	function colorizedJSON(o,e="html",l="\t"){const t=/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/gis,r=e.toLowerCase();let s="string"==typeof o?o:JSON.stringify(o,void 0,l);s=s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");const n=e=>/^"/.test(e)?/:$/.test(e)?"color:#4169e1":"color:#228b22":/true|false/.test(e)?"color:#c800ff":/null/.test(e)?"color:#c0c0c0":"color:#e46767";if("html"==r)return s.replace(t,(e=>`<span style="${n(e)}">${e}</span>`)).replaceAll('":</span> ', '"</span>: ');if("console"==r){let e=[];return s=s.replace(t,(o=>(e.push(n(o)),e.push(""),"%c"+o+"%c"))),e.unshift(s),console.log.apply(console,e)}const c=`colorizedJSON(): type '${e}' not supported. Expecting 'html' or 'console'.`;return console.warn(c),c}
+
+	output.innerHTML = colorizedJSON(JSON.parse(data), 'html', '    ');
+</script>
+{% endblock %}
+
