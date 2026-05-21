@@ -1,7 +1,7 @@
 import json # ----
 import os
 from datetime	import datetime, timedelta
-from flask 		import Flask, render_template, send_from_directory
+from flask 		import Flask, jsonify, render_template, send_from_directory
 from workers	import fetchData, processData
 
 app = Flask(__name__)
@@ -37,7 +37,7 @@ def data():
 
 @app.route('/health')
 def health_check():
-	return '{"message":"OK"}'
+	return jsonify({"message":"OK"})
 
 # ════════════════════════════════════════════════════════════════════════════════════════════════
 
