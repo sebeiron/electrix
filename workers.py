@@ -1,5 +1,4 @@
 import json
-import os
 import urllib.error
 import urllib.request
 from typing import List, Optional
@@ -7,10 +6,11 @@ from typing import List, Optional
 
 # ─────────────────────────────────────────── constants ────────────────────────────────────────────
 
-SLOTS_PER_DAY = 96  # 24 hours x 4 quarter-hours
+EON_API_URL: str	 = 'https://eonepapirun.azurewebsites.net/api/getSpotPrices?priceArea=SE4&date={0}'
 
-# Ordered list of all 15-minute time strings for one day
-FULL_TIMES: List[str] = [ f"{h:02d}:{m:02d}" for h in range(24) for m in (0, 15, 30, 45) ]
+SLOTS_PER_DAY: int	 = 96  # 24 hours x 4 quarter-hours
+
+FULL_TIMES: List[str]= [ f"{h:02d}:{m:02d}" for h in range(24) for m in (0, 15, 30, 45) ] # Ordered list of all 15-minute time strings for one day
 
 
 # ═══════════════════════════════════════════ FUNCTIONS ════════════════════════════════════════════
@@ -23,10 +23,10 @@ Data format:
 	...
 ]
 """
-def fetchData(url:str, date:str) -> dict:
+def fetchData(date:str) -> dict:
 	try:
 		print()
-		request = urllib.request.Request(url+date)
+		request = urllib.request.Request(EON_API_URL.format(date))
 		request.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36')
 		with urllib.request.urlopen(request, timeout=30) as response:
 			if response.status == 200:
@@ -41,20 +41,6 @@ def fetchData(url:str, date:str) -> dict:
 
 
 """
- Returns sample data for testing. The format is the same as for fetchData
-
-"""
-def	fetchData_sample(sampleNumber:int) -> dict:
-	base_dir= os.path.dirname(os.path.abspath(__file__))
-	dates = ['2026-04-03', '2026-04-04']
-	date  = dates[sampleNumber-1]
-	input_path  = os.path.join(base_dir, f"{date}.json")
-	with open(input_path, "r", encoding="utf-8") as fh:
-		records = json.load(fh)
-	return {'date': date, 'records': records}
-
-
-"""
 Reads prices.json (array of objects with dateTime, value, definitive),
 fills all 96 fifteen-minute slots of the day ordered by time and using:
   - linear interpolation across contiguous inner gaps
@@ -66,7 +52,7 @@ Output format:
 	"added":  [ 8, 9, 16, ... ]			# indexes of extrapolated slots
 }
 """
-def processData(records:List[dict]) -> List[dict]:
+def processData(records:List[dict]) -> Optional[List[dict]]:
 
 	#──────────────────────────────────────────────────────────
 	def to_float(val) -> Optional[float]:
@@ -153,5 +139,3 @@ if __name__ == "__main__":
 	# print(data)
 	# print(processData(data))
 	pass
-
-
