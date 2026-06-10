@@ -38,6 +38,8 @@
 		.icon-clock:hover				{ cursor:pointer; background-color:#e7f2fd }
 		.noscroll						{ overflow:hidden }
 		.failure						{ display:none }
+		.dim							{ color:#888 }
+		.small							{ font-size:.9em }
 
 		notif-msg						{ display:block; margin:2em 0 0 0; padding:.5em .5em .5em 2em; border-radius:.3em; font-size:.9em; background:#fff url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAyMiAyMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMSIgY3k9IjExIiByPSIxMCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9IiMyMTk2ZjMiIGZpbGw9IiNmZmYiLz48bGluZSBjbGFzcz0ibmZvIiB4MT0iMTEiIHkxPSI2IiB4Mj0iMTEiIHkyPSIxNiIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2U9IiMyMTk2ZjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWRhc2hhcnJheT0iLjEsIDQsIDEyIi8+PC9zdmc+DQo=) .5em .75em / 1.2em 1.2em no-repeat; }
 		notif-msg.info					{ color:#00529B; background-color:#BDE5F8 }
@@ -106,7 +108,7 @@
 		#error-fetch					{ margin:4em 8em; padding:1em; border:2px solid #f6a4a6; border-radius:.5em; background-color:#fee2e2; font-size:1.5em; text-align:center }
 
 
-		graph-wrap						{ display:flex; flex-flow:column nowrap; margin-top:3em; padding:16px; background:var(--bg-gradient) }
+		graph-wrap						{ display:none; flex-flow:column nowrap; margin-top:3em; padding:16px; background:var(--bg-gradient) }
 		#graph							{ box-shadow: 1px 2px 3px #ccc; border-top:1px solid #ddd; padding:4px; background-color:#fff }
 
 		#background {
@@ -156,28 +158,29 @@
 		main							{ margin:0; padding:0 1em 1em 1em }
 
 		table.calc {					  border-collapse:separate; border-spacing:.5em;
-			td							{ padding-top:2px }
+			td							{ padding-top:2px; white-space:nowrap; }
 			select						{ padding:2px }
 			button						{ width:100%; margin:0 }
+			td:has(#btn-calc_lwst)		{ padding-right:1em }
 		}
-		calcs-row {					  	  display:grid; grid-template-columns:auto auto; gap:0 1em; margin-top:1em; margin:0; padding:0;
+		calcs-row {					  	  display:none; justify-content:center; gap:0 1em; margin-top:1em; margin:0; padding:0;
 			h2							{ display:none; border:1px solid #666; border-radius:11px 11px 0 0; background-color:#f0f0f0 }
 			h3							{ margin:.5em }
+			#calc_lwst-now				{ margin-left:-1em }
 		}
-		calc-wrap						{ background-color:#fafafa; padding:.5em; border:1px solid #666; border-radius:11px; box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px }
+		calc-wrap						{ flex: 0 0 320px;background-color:#fafafa; padding:.5em; border:1px solid #666; border-radius:11px; box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px }
 
 
-		boxinfo-wrap					{ display:grid; justify-items:center; gap:2em}
+		boxinfo-wrap					{ display:none; justify-items:center; gap:2em}
 		boxinfo-curr, dayly-card		{ border:1px solid #cccccc; border-radius:11px; background: linear-gradient(to bottom, #fff 50%, #eef2f3 100%); box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px }
 		boxinfo-curr {					  display:flex; flex-direction:column; margin:1em; padding:.25em 2em; text-align:center;background: linear-gradient(to bottom, #fff 50%, #eef2f3 100%); box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 			p, em						{ margin:0 0 .5em 0; font-size:.8em }
-			h4							{ margin-top:0 }
 			b							{ font-size:1.2em; color:#2196f3 }
 		}
 		dayly-cards-wrap {
-										  display:flex; justify-content:center; gap:1em; margin:1em 0;
-			dayly-card					{ display:flex; flex-direction:column; flex:1 1 400px;max-width:200px; padding:.5em 1em }
-			p							{ margin:0 0 .5em 0 }
+										  display:none; justify-content:center; gap:1em; margin:1em 0;
+			dayly-card					{ display:flex; flex-direction:column; flex:0 0 200px; padding:.5em 1em }
+			p							{ margin:0 0 .5em 1em }
 			span						{ font-weight:500; font-size:1.1em }
 		}
 
@@ -185,7 +188,7 @@
 										  font-size:38px;
 			input, select				{ padding-right:.25em }
 			notif-msg					{ font-size:1em; }
-			dayly-card					{ max-width:unset }
+			dayly-card					{ flex:none }
 			aside-icon:hover			{ background-color:transparent }
 			aside-icon, aside-icon svg	{ top:.5em; width:54px; height:54px }
 			aside.onRight.open aside-icon{ transform:translateX(0) }
@@ -198,6 +201,7 @@
 			calcs-row					{ gap:0 }
 			calcs-row h2				{ display:block }
 			calcs-row h2.active			{ border-width:8px 2px 0 2px; border-top-color:#2cb934; background-color:#fafafa; color:#288030 }
+			calcs-row #calc_lwst-now	{ margin-left:0 }
 			calc-wrap					{ display:none; border-top-width:0; border-radius:0 0 11px 11px }
 			calc-wrap h3				{ display:none }
 			calc-wrap.active			{ display:block; grid-column-start:span 2 }
@@ -205,9 +209,11 @@
 			#axes text.date				{ transform:translate(0, .5em); }
 			#axes text.subdate			{ transform:translate(0, 1.2em); }
 			#results					{ height:4em }
+			td:has(#btn-calc_lwst)		{ padding-right:0 }
 			pre { display:none }
 		}
-		#btn-cfg_reset					{ display:none }
+		#btn-cfg_reset					{ xdisplay:none }
+		select-buttons-bar 				{ grid-column-start:span 2; --bdr-hvr:#2AB934 }
 	</style>
 </head>
 <body>
@@ -223,8 +229,10 @@
 					<var>Default final charge		</var><span><input id="dflt_chrg_cap"	 type="number" min="0" max="100"/> <abbr>%<abbr></span>
 					<var>Default period start time	</var><time-picker id="dflt_time_start" value="23:00"/></time-picker>
 					<var>Default period end time	</var><time-picker id="dflt_time_end"	 value="07:00"/></time-picker>
-					<h2>Visualization</h2>
-					<var>Graph						</var><select id="vis_graph"><option value="24">Next 24 hours</option><option value="48">Full (48 hours)</option></select>
+					<h2>Graph time frame</h2>
+					<!-- <var>Time frame					</var><select id="vis_graph"><option value="24">Next 24 hours</option><option value="48">Full (48 hours)</option></select> -->
+					<select-buttons-bar id="vis_graph" color="gray-light" equal-columns><option value="24">Next 24 hours</option><option value="48">Full (48 hours)</option></select-buttons-bar>
+
 					<var></var><var></var>
 					<div id="notif-cfg_save">		</div><button id="btn-cfg_save">Save</button>
 				</section>
@@ -252,8 +260,7 @@
 				<p>The end charge must be greater than the current one; if not, the charging values will be modified automatically to ensure there is at least 1% difference between the initial and the final charge.<br>
 					This correction is indicated by an orange pulse effect.</p>
 				<h2>Privacy</h2>
-				<p>The hourly charge and default values are saved locally on your browser private data storage.<br>
-					Absolutely no data is shared nor saved anywhere else.</p>
+				<p>All settings are saved locally on your browser private data storage. Absolutely no data is shared nor saved anywhere else.</p>
 			</aside-content>
 		</aside>
 	</header>
@@ -303,7 +310,7 @@
 					<tr><td colspan="5"><b>Time frame</b></td></tr>
 					<tr><td>from </td><td colspan="2"><select id="calc_lwst-fday"></select></td><td><time-picker id="calc_lwst-ftime" value=""></time-picker></td><td><i class="icon-clock" id="calc_lwst-now"></i></td></tr>
 					<tr><td>until</td><td colspan="2"><select id="calc_lwst-tday"></select></td><td><time-picker id="calc_lwst-ttime" value=""></time-picker></td><td></td></tr>
-					<tr><td></td><td colspan="3"><button id="btn-calc_lwst">Find</button></td><td></td></td></tr>
+					<tr><td></td><td colspan="3"><button id="btn-calc_lwst">Find</button></td><td></td></tr>
 				</table>
 			</calc-wrap>
 			<calc-wrap>
@@ -311,7 +318,7 @@
 				<table class="calc">
 					<tr><td>from </td><td><select id="calc_cost-fday"></select></td><td><time-picker id="calc_cost-ftime" value=""></time-picker></td><td><i class="icon-clock" id="calc_cost-now"></i></td></tr>
 					<tr><td>until</td><td><select id="calc_cost-tday"></select></td><td><time-picker id="calc_cost-ttime" value=""></time-picker></td><td></td></tr>
-					<tr><td></td><td colspan="2"><button id="btn-calc_cost">Calculate</button></td><td></td></td></tr>
+					<tr><td></td><td colspan="2"><button id="btn-calc_cost">Calculate</button></td><td></td></tr>
 			</table>
 			</calc-wrap>
 		</calcs-row>
@@ -319,21 +326,17 @@
 		<dayly-cards-wrap>
 			<dayly-card id="day0-card">
 				<h3 id="day0-date"></h3>
-				<h4>Lowest price</h4>
-				<p><span id="day0-low_price" class="low">---</span> öre/kWh</p>
-				<p id="day0-low_times">---</p>
-				<h4>Highest price</h4>
-				<p><span id="day0-high_price" class="high">---</span> öre/kWh</p>
-				<p id="day0-high_times">---</p>
+				<h4>Lowest price </h4><p><span id="day0-low_price"	class="low" >---</span> öre/kWh</p> <p id="day0-low_times"  class="dim small">---</p>
+				<h4>Highest price</h4><p><span id="day0-high_price"	class="high">---</span> öre/kWh</p> <p id="day0-high_times" class="dim small">---</p>
+				<h4>Average price</h4><p><span id="day0-avrg_price">---</span> öre/kWh</p>
+				<h4>Median price </h4><p><span id="day0-medn_price">---</span> öre/kWh</p>
 			</dayly-card>
 			<dayly-card id="day1-card">
 				<h3 id="day1-date"></h3>
-				<h4>Lowest price</h4>
-				<p><span id="day1-low_price" class="low">---</span> öre/kWh</p>
-				<p id="day1-low_times">---</p>
-				<h4>Highest price</h4>
-				<p><span id="day1-high_price" class="high">---</span> öre/kWh</p>
-				<p id="day1-high_times">---</p>
+				<h4>Lowest price </h4><p><span id="day1-low_price"	class="low" >---</span> öre/kWh</p> <p id="day1-low_times"  class="dim small">---</p>
+				<h4>Highest price</h4><p><span id="day1-high_price"	class="high">---</span> öre/kWh</p> <p id="day1-high_times" class="dim small">---</p>
+				<h4>Average price</h4><p><span id="day1-avrg_price">---</span> öre/kWh</p>
+				<h4>Median price </h4><p><span id="day1-medn_price">---</span> öre/kWh</p>
 			</dayly-card>
 		</dayly-cards-wrap>
 		<p id="error-fetch" class="failure">NO DATA AVAILABLE</p>
@@ -343,16 +346,17 @@
 
 	const DATA  = {{ data|safe }};
 
-
 	//══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
 	// GLOBAL VARIABLES AND CLASSES
 	//══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
 
-	const MINS_IN_DAY	= 60*24;
-	const DATA_MERGED	= [];
-	const DATA_MINUTES	= [];
+	const MINS_IN_DAY	= 24*60;
+	const SPOTS_IN_DAY	= 24*4;
+	const DATA_FULL		= [];
+	const DATA_TIMEFRAME= [];
+	const DATA_MINUTES	= [];  ///// <<<<< need to be reviewed
 	const DATES			= [];
-	const C				= Object.freeze({ action: 'color:#AA00AA',	 info: 'color:#00AAAA',		success: 'color:#00AA00',		event: 'color:#FF7800',		error: 'color:#B22200',		value: 'color:#0842a0', timeframe:'#ddffff88' , period:'#ddff0040', periodError:'#e0300840' });
+	const C				= Object.freeze({action:'purple', info:'blue', event:'green', error:'darkRed', value:'navy', dimmed:'darkGray', timeframe:'#ddffff88' , period:'#ddff0040'});
 	const K = {
 		padLeft		: 28,			timeStart	: '00:00',
 		padVert		: 20,			timeEnd		: '23:59',
@@ -361,16 +365,20 @@
 	};
 	const G	= {
 		spotsCount	: 0,		dayStart	: 0,
-		currTime	: null,		dayEnd		: 1,
-		currNdx		: null,		fullDates	: [],
+		currNdx		: {},		dayEnd		: 1,
+		currTime	: null,		fullDates	: [],
 		activeSpot	: null,		dayLabels	: [],
 		activeCrcl	: null,		cyMin		: 0,
 		activeNdx	: null,		cyMax		: 0,
 		missingDate	: false,	cyLen		: 0,
-		cpm			: 0,		isMobile	: /android|iphone|kindle|ipad/i.test(navigator.userAgent),
+		isMobile	: false,	lowHighs	: [],
+		cpm			: 0,
 	}
 
-	customElements.define("time-picker",class t extends HTMLElement{static #a=':host{display:grid;padding:.2em;grid-template-columns:1.5em .5em 1.5em;align-items:center;gap:.1em;width:min-content;border:1px solid #000;font-size:.9em;font-family:"Segoe UI Mono W10 Regular",Cousine,Consolas,monospace;background-color:#fff;span{font-size:inherit;font-family:inherit;font-weight:500}input{font-size:inherit;font-family:inherit;color:inherit;background:transparent;border-width:0}input:first-child{text-align:right}input:focus-visible{outline:none}input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{display:none;margin:0}}';static #b=RegExp("^(\\d?\\d):(\\d?\\d)$");static #c=t=>t.toString().padStart(2,"0");#d={hr:0,mn:0};#e="00:00";#f="00";#g="00";#h=0;constructor(){super()}connectedCallback(){this.attachShadow({mode:"open"});let e=t.#a,i=document.createElement("style");for(let s of(i.textContent=e,this.#f=Object.assign(document.createElement("input"),{id:"hr",type:"number",value:this.#f,min:"0",max:"23"}),this.#g=Object.assign(document.createElement("input"),{id:"mn",type:"number",value:this.#g,min:"0",max:"59"}),this.shadowRoot.appendChild(this.#f),this.shadowRoot.appendChild(Object.assign(document.createElement("span"),{innerHTML:":"})),this.shadowRoot.appendChild(this.#g),this.shadowRoot.appendChild(i),this.hasAttribute("tabindex")?(this.#f.tabIndex=this.getAttribute("tabindex"),this.#g.tabIndex=this.getAttribute("tabindex")):(this.#f.tabIndex=0,this.#g.tabIndex=0),this.removeAttribute("tabindex"),[this.#f,this.#g]))s.addEventListener("input",t=>this.#i(s)),s.addEventListener("focus",t=>s.select()),s.addEventListener("keydown",t=>this.#j(s,t));this.value=this.getAttribute("value")||"0:0"}#j(e,i){if("ArrowRight"==i.key&&"hr"==e.id){if(3==++this.#h)return this.#h=0,this.#g.focus()}else if("ArrowLeft"==i.key&&"mn"==e.id){if(-3==--this.#h)return this.#h=0,this.#f.focus()}else this.#h=0}#i(s){let n="hr"==s.id?23:59,h=parseInt(s.value);if(isNaN(h)){s.value=t.#c(this.#d[s.id]);return}h<0&&(h=0),h>n&&(h=n),s.value=t.#c(h),this.#e=`${this.#f.value}:${this.#g.value}`,h!=this.#d[s.id]&&(this.#d[s.id]=h,this.dispatchEvent(new Event("change",{bubbles:!0,cancelable:!0})))}set value(e){if("string"!=typeof e)throw TypeError(`${e} is not a string`);let i=e.match(t.#b);if(!i)throw RangeError(`Invalid time format for "${e}". Expecting HH:mm with or without leading 0s.`);let s=parseInt(i[1]),n=parseInt(i[2]),h="";if(s>23&&(h+=`\nHours value "${s}" exceeds 23.`),n>59&&(h+=`\nMinutes value "${n}" exceeds 59.`),h.length>0)throw RangeError("Invalid values:"+h);this.#f.value=t.#c(s),this.#g.value=t.#c(n),this.#e=`${this.#f.value}:${this.#g.value}`}get value(){return this.#e}focus(){this.#f.focus(),this.#f.select()}});
+	customElements.define("time-picker",class t extends HTMLElement{static #a=':host{display:inline-grid;padding:.2em;grid-template-columns:1.5em .5em 1.5em;align-items:center;gap:.1em;width:min-content;border:1px solid #000;font-size:.9em;font-family:"Segoe UI Mono W10 Regular",Cousine,Consolas,monospace;background-color:#fff;span{font-size:inherit;font-family:inherit;font-weight:500}input{font-size:inherit;font-family:inherit;color:inherit;background:transparent;border-width:0}input:first-child{text-align:right}input:focus-visible{outline:none}input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{display:none;margin:0}}';static #b=RegExp("^(\\d?\\d):(\\d?\\d)$");static #c=t=>t.toString().padStart(2,"0");#d={hr:0,mn:0};#e="00:00";#f="00";#g="00";#h=0;constructor(){super()}connectedCallback(){this.attachShadow({mode:"open"});let e=t.#a,i=document.createElement("style");for(let s of(i.textContent=e,this.#f=Object.assign(document.createElement("input"),{id:"hr",type:"number",value:this.#f,min:"0",max:"23"}),this.#g=Object.assign(document.createElement("input"),{id:"mn",type:"number",value:this.#g,min:"0",max:"59"}),this.shadowRoot.appendChild(this.#f),this.shadowRoot.appendChild(Object.assign(document.createElement("span"),{innerHTML:":"})),this.shadowRoot.appendChild(this.#g),this.shadowRoot.appendChild(i),this.hasAttribute("tabindex")?(this.#f.tabIndex=this.getAttribute("tabindex"),this.#g.tabIndex=this.getAttribute("tabindex")):(this.#f.tabIndex=0,this.#g.tabIndex=0),this.removeAttribute("tabindex"),[this.#f,this.#g]))s.addEventListener("input",t=>this.#i(s)),s.addEventListener("focus",t=>s.select()),s.addEventListener("keydown",t=>this.#j(s,t));this.value=this.getAttribute("value")||"0:0"}#j(e,i){if("ArrowRight"==i.key&&"hr"==e.id){if(3==++this.#h)return this.#h=0,this.#g.focus()}else if("ArrowLeft"==i.key&&"mn"==e.id){if(-3==--this.#h)return this.#h=0,this.#f.focus()}else this.#h=0}#i(s){let n="hr"==s.id?23:59,h=parseInt(s.value);if(isNaN(h)){s.value=t.#c(this.#d[s.id]);return}h<0&&(h=0),h>n&&(h=n),s.value=t.#c(h),this.#e=`${this.#f.value}:${this.#g.value}`,h!=this.#d[s.id]&&(this.#d[s.id]=h,this.dispatchEvent(new Event("change",{bubbles:!0,cancelable:!0})))}set value(e){if("string"!=typeof e)throw TypeError(`${e} is not a string`);let i=e.match(t.#b);if(!i)throw RangeError(`Invalid time format for "${e}". Expecting HH:mm with or without leading 0s.`);let s=parseInt(i[1]),n=parseInt(i[2]),h="";if(s>23&&(h+=`\nHours value "${s}" exceeds 23.`),n>59&&(h+=`\nMinutes value "${n}" exceeds 59.`),h.length>0)throw RangeError("Invalid values:"+h);this.#f.value=t.#c(s),this.#g.value=t.#c(n),this.#e=`${this.#f.value}:${this.#g.value}`}get value(){return this.#e}focus(){this.#f.focus(),this.#f.select()}});
+	customElements.define("select-buttons-bar",class t extends HTMLElement{static #a="white";static #b={white:{bdr:"#B3B7BC","bdr-hvr":"#B3B7BC","bdr-sel":"#90949B",bkg:"#FFFFFF","bkg-hvr":"#F7FAFC","bkg-sel":"#e0e0e0",txt:"#666666","txt-hvr":"#000000","txt-sel":"#000000"},"gray-light":{bdr:"#B3B7BC","bdr-hvr":"#B3B7BC","bdr-sel":"#90949B",bkg:"#e0e0e0","bkg-hvr":"#EDEDED","bkg-sel":"#F7FAFC",txt:"#000000","txt-hvr":"#000000","txt-sel":"#000000"},"gray-dark":{bdr:"#3D444B","bdr-hvr":"#90949B","bdr-sel":"#B3B7BC",bkg:"#6C737A","bkg-hvr":"#F7FAFC","bkg-sel":"#e0e0e0",txt:"#FFFFFF","txt-hvr":"#000000","txt-sel":"#000000"},"blue-light":{bdr:"#6FB0E2","bdr-hvr":"#A0D2F8","bdr-sel":"#0078D7",bkg:"#BADDF3","bkg-hvr":"#E1F2FA","bkg-sel":"#0078D7",txt:"#000000","txt-hvr":"#000000","txt-sel":"#FFFFFF"},"blue-dark":{bdr:"#0A67B0","bdr-hvr":"#A0D2F8","bdr-sel":"#3A97E0",bkg:"#0042A1","bkg-hvr":"#E1F2FA","bkg-sel":"#BADDF3",txt:"#FFFFFF","txt-hvr":"#000000","txt-sel":"#000000"},"teal-light":{bdr:"#02A8C2","bdr-hvr":"#00BCD5","bdr-sel":"#026A83",bkg:"#00BCD5","bkg-hvr":"#E1F2FA","bkg-sel":"#007888",txt:"#000000","txt-hvr":"#000000","txt-sel":"#FFFFFF"},"teal-dark":{bdr:"#026A83","bdr-hvr":"#026A83","bdr-sel":"#02A8C2",bkg:"#007888","bkg-hvr":"#E1F2FA","bkg-sel":"#00BCD5",txt:"#FFFFFF","txt-hvr":"#000000","txt-sel":"#000000"}};#c=-1;#d=[];#e={};constructor(){super(),this.color=(this.getAttribute("color")||t.#a).toLowerCase(),this.equalColumns=this.hasAttribute("equal-columns"),Object.keys(t.#b).includes(this.color)||(console.warn(`select-buttons-bar#${this.id} invalid color specified: ${this.color}; falling back to default "${t.#a}"`),this.color=t.#a),this.addEventListener("keydown",this.#f)}connectedCallback(){this.attachShadow({mode:"open"});let e=':host{--height:2em;--rad:calc(var(--height) * .5);--bdr:<bdr>;--bdr-hvr:<bdr-hvr>;--bdr-sel:<bdr-sel>;--bkg:<bkg>;--bkg-hvr:<bkg-hvr>;--bkg-sel:<bkg-sel>;--txt:<txt>;--txt-hvr:<txt-hvr>;--txt-sel:<txt-sel>;display:inline-grid;grid-auto-flow:column;<w>border-radius:var(--rad)}:host>option{position:relative;display:inline-block;min-width:64px;height:var(--height);line-height:var(--height);padding:0px 8px;color:var(--txt);border:1px solid var(--bdr);background:var(--bkg);text-align:center;vertical-align:middle}:host>option:first-of-type{border-top-left-radius:var(--rad);border-bottom-left-radius:var(--rad)}:host>option:last-of-type{border-top-right-radius:var(--rad);border-bottom-right-radius:var(--rad)}:host>option:focus{outline:none}:host>option:not([selected="true"]):hover{color:var(--txt-hvr);border-color:var(--bdr-hvr);background:var(--bkg-hvr);box-shadow: 0px 0px 8px -2px rgba(0,0,0,0.5);;cursor:pointer}:host>option[selected="true"]{color:var(--txt-sel);border-color:var(--bdr-sel);background:var(--bkg-sel)}:host>option[selected="true"]:hover{background:var(--bkg-sel);cursor:default}',r=Array.from(this.querySelectorAll("option"));if(0==r.length)return;let s=-1,o=!0;for(let[l,i]of r.entries()){let n=document.createElement("option");for(let d of i.attributes)n.setAttribute(d.name,d.value);n.hasAttribute("selected")&&(s=l),n.hasAttribute("value")?o=!1:n.setAttribute("value",""),n.textContent=i.textContent,n.addEventListener("click",t=>this.#g(t)),this.#e[n.getAttribute("value")]=l,this.#d.push(n),this.shadowRoot.appendChild(n),i.remove()}if(s>=0&&(this.selectedIndex=s),o)for(let[$,a]of this.#d.entries())a.setAttribute("value",$);for(let[h,b]of Object.entries(t.#b[this.color]))e=e.replaceAll(`<${h}>`,b);e=e.replace("<w>",this.equalColumns?"grid-auto-columns:1fr;":"");let u=document.createElement("style");u.textContent=e,this.shadowRoot.appendChild(u)}#f(e){let r=!1;switch(e.keyCode){case 37:r=!0,this.selectedIndex=0===this.#c?this.#d.length-1:this.#c-1;break;case 39:r=!0,this.selectedIndex=this.#c===this.#d.length-1?0:this.#c+1}r&&this.#h()}#g(s){s.stopPropagation();let o=this.#d.indexOf(s.target);-1!=o&&o!=this.#c&&(this.selectedIndex=o,this.#h())}#h(){this.dispatchEvent(new Event("change",{bubbles:!0,cancelable:!0}))}get selectedIndex(){return this.#c}set selectedIndex(t){if(null===t)return console.warn(`select-buttons-bar${this.id} set selectedIndex(value) null value provided`);if(void 0===t)return console.warn(`select-buttons-bar${this.id} set selectedIndex(value) no value provided`);let e=Number(t);return isNaN(e)?console.warn(`select-buttons-bar${this.id} set selectedIndex(index) index is not an integer>0: ${t}`):e<0||e>=this.#d.length?console.warn(`select-buttons-bar${this.id} set selectedIndex(index) index must be between 0 and ${this.#d.length}`):void(this.#c>=0&&this.#d[this.#c].removeAttribute("selected"),this.#d[e].focus(),this.#d[e].setAttribute("selected",!0),this.#c=e)}get value(){return this.#c<0?null:this.#d[this.#c].getAttribute("value")}set value(t){if(null===t)return console.warn(`select-buttons-bar${this.id} set value(value) null value provided`);if(void 0===t)return console.warn(`select-buttons-bar${this.id} set value(value) no value provided`);let e=`${t}`;this.#e.hasOwnProperty(e)?this.selectedIndex=this.#e[e]:console.warn(`select-buttons-bar#${this.id} value to select not found: ${t}`)}get length(){return this.#d.length}get options(){let t=[];for(let[e,r]of this.#d.entries())t.push({index:e,id:r.id,value:r.value});return t}});
+
+	Object.assign(String.prototype,{colored(o){let m='',c='103;31',l=[];switch(o?.toLowerCase()||'black'){case'black':c=30;break;case'navy':c=34;break;case'darkgray':c=90;break;case'blue':c=94;break;case'darkred':c=31;break;case'purple':c=35;break;case'red':c=91;break;case'pink':c=95;break;case'green':c=32;break;case'teal':c=36;break;case'lime':c=92;break;case'cyan':c=96;break;case'brown':c=33;break;case'gray':c=37;break;case'yellow':c=93}m=`\x1B[${c}m%s\x1B[m`;for(const n of this.split('🔸'))if(n.includes('»')){let t='';for(const s of n.split('🔹'))if(s.includes('»')){const[k,v]=s.split('»');t+=`\x1B[36m${k}\x1B[37m:\x1B[34m${v}\x1B[m`}else t+=m.replace('%s',s);l.push(t)}else l.push(m.replace('%s',n));return l.join('\n')}});
 
 	class Size { constructor(width, height) { this.w = width; this.h = height; } set(width, height) { this.w = width; this.h = height; } }
 
@@ -392,32 +400,49 @@
 	}
 
 
-	if (G.isMobile) {
-		document.body.classList.add('mobile');
-		console.log('%cMobile device detected', C.event);
-	}
-
-
 	//══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
 	// BOOTSTRAP
 	//══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
 
 	document.addEventListener('DOMContentLoaded', () => {
 
-				const _addMinutes = (x) => { for (var i=0; i<15; i++) DATA_MINUTES.push(x.price) };
+		G.isMobile = /android|iphone|kindle|ipad/i.test(navigator.userAgent);
+		if (G.isMobile) {
+			document.body.classList.add('mobile');
+			console.log('Mobile device detected'.colored(C.info));
+		}
 
-		// const [currDay, currHrMn] = updateCurrentTime();
-		// const currQrt = qCnt(currHrMn);
-		// console.log(currDay, currHrMn, currQrt, DATA_MERGED[currDay*96+currQrt]);
+		SidePanels.init();
+		ActiveSpotInfo.init();
+		CurrentSpotInfo.init();
+		Graph.init();
+		Results.init();
+		ChargingTimeCalculator.init();
+		LowestCostPeriodCalculator.init();
+		PeriodCostCalculator.init();
+		Tabs.init();
+		Config.init();
+
+		console.log('Components loaded'.colored(C.event));
+
+		window.  addEventListener('keydown', handleKeys);
+		document.getElementById('btn-15' )	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowLeft'   })); });
+		document.getElementById('btn-60' )	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowLeft',  ctrlKey: true})); });
+		document.getElementById('btn-360')	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowLeft',  shiftKey: true})); });
+		document.getElementById('btn+15' )	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowRight'  })); });
+		document.getElementById('btn+60' )	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowRight', ctrlKey: true})); });
+		document.getElementById('btn+360')	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowRight', shiftKey: true})); });
+		document.querySelectorAll('input[type=number]').forEach(item => item.addEventListener('click', e=> item.select()));
+
+		const _addMinutes = (x) => { for (var i=0; i<15; i++) DATA_MINUTES.push(x.price) };
 
 		let minPrice = Infinity;
 		let maxPrice = 0, d = 0;
-		let lowHighs = [null, null];
 		for (const [n, date] of Object.keys(DATA).entries()) {
 			if (!DATA[date]) {
 				G.missingDate= date;
 				G.dayEnd	 = 0;
-				console.log(`%c⚠ %cNo data for ${relativeDay(date)} (${date})`, C.event, C.error);
+				console.log(`⚠ No data for ${date} (${relativeDay(date)})`.colored(C.error));
 				continue;
 			}
 			DATES[d] = date;
@@ -432,65 +457,69 @@
 				spot['id']		= i;
 				spot['minutes'] = 15*i;
 				const copy= {...spot}
-				DATA_MERGED.push(copy);
-				copy['id']		+= d*96;
+				DATA_FULL.push(copy);
+				copy['id']		+= d*SPOTS_IN_DAY;
 				copy['minutes'] += d*MINS_IN_DAY;
 				_addMinutes(copy);
 			}
-			minNdx		+= d*96; maxNdx += d*96;
-			lowHighs[d]	 = [minNdx, maxNdx];
-			G.spotsCount+= 96; ///// <<<<<<<<<<<<<< can be improved?
+			minNdx		+= d*SPOTS_IN_DAY; maxNdx += d*SPOTS_IN_DAY;
+			G.lowHighs.push([minNdx, maxNdx]);
 			d++;
 		}
 
-		console.log(`  50: ${DATA_MINUTES[50]  } / 4.42`); console.log(` 123: ${DATA_MINUTES[123] } / 5.85`); console.log(` 666: ${DATA_MINUTES[666] } / 5.94`); console.log(`1234: ${DATA_MINUTES[1234]} / 112.19`); console.log(`2879: ${DATA_MINUTES[2879]} / 65.51`);
-		if (!DATA_MERGED.length) {
-			['graph-wrap', 'boxinfo-wrap', 'calcs-row', 'dayly-cards-wrap'].forEach(elem => document.querySelector(elem).style.display = 'none');
+		if (!DATA_FULL.length) {
+			['graph-wrap',	, 'dayly-cards-wrap', 'boxinfo-wrap', 'calcs-row'].forEach(elem => document.querySelector(elem).style.display = 'none');
 			document.getElementById('error-fetch').style.display = 'block';
 			return;
 		}
+		document.getElementById('error-fetch'	 ).style.display = 'none';
+		document.querySelector('graph-wrap'		 ).style.display = 'flex';
+		document.querySelector('dayly-cards-wrap').style.display = 'flex';
+		document.querySelector('boxinfo-wrap'	 ).style.display = 'grid';
+		document.querySelector('calcs-row'	 	 ).style.display  = G.isMobile ? 'grid' : 'flex';
 
 		G.dayLabels	 = DATES.map(d => relativeDay(d));
 		G.fullDates	 = DATES.map(d => new IsoDate(d).longFormat());
-		console.log(...coloredVars('', C.info, {'from': G.dayLabels[0], 'to': G.dayLabels[1]}));
-		console.log(`%cMetrics for ${DATES[0]} and ${DATES[1]}`, C.action);
+		console.log(`Data🔹 ${G.missingDate? `for»${G.dayLabels[0]}` : `from»${G.dayLabels[0]}🔹 to»${G.dayLabels[1]}`}`.colored());
+		console.log('Metrics for full period'.colored(C.action));
 		G.cyMin	= Math.min(Math.floor(minPrice/25)*25, -25);
 		G.cyMax	= Math.ceil(maxPrice/25)*25;
 		G.cyLen	= G.cyMax - G.cyMin;
-		console.log(...coloredVars('', null, { ' min →   max ': `${minPrice} → ${maxPrice}`, '\ncyMin → cyMax ': `${G.cyMin } → ${G.cyMax}`}));
+		console.log(`    spots count» ${DATA_FULL.length}🔸    min →   max» ${minPrice} → ${maxPrice}🔸  cyMin → cyMax» ${G.cyMin} → ${G.cyMax}`.colored());
+
+		Config.load();
+		});
+
+
+	function execute() {
 
 		updateCurrentTime();
-		SidePanels.init();
-		ActiveSpotInfo.init();
-		CurrentSpotInfo.init();
-		Graph.init();
-		Results.init();
-		ChargingTimeCalculator.init();
-		LowestCostPeriodCalculator.init();
-		PeriodCostCalculator.init();
-		Tabs.init();
-		Config.init();
+		G.cpm = Math.min(Config.speed, 100)/60;
 
-		window.  addEventListener('keydown', handleKeys);
-		document.getElementById('btn-15' )	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowLeft'   })); });
-		document.getElementById('btn-60' )	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowLeft',  ctrlKey: true})); });
-		document.getElementById('btn-360')	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowLeft',  shiftKey: true})); });
-		document.getElementById('btn+15' )	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowRight'  })); });
-		document.getElementById('btn+60' )	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowRight', ctrlKey: true})); });
-		document.getElementById('btn+360')	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowRight', shiftKey: true})); });
-		document.querySelectorAll('input[type=number]').forEach(item => item.addEventListener('click', e=> item.select()));
-		// document.getElementById('calc2'	 )	.addEventListener('click', periodCost);
+		// time frame
+		let startNdx = 0;
+		let endNdx	 = DATA_FULL.length-1;
+		if (Config.range==24 && DATES.length==2 && DATES.includes(G.currTime.date)) {
+			startNdx= DATES[1]==G.currTime.date ? SPOTS_IN_DAY : Math.max(0, G.currNdx.full-2);
+			endNdx	= startNdx+SPOTS_IN_DAY-1;
+		}
+		console.log(`Active time frame (${Config.range}h → ${endNdx-startNdx+1} spots)🔸  start»#${startNdx} (${DATA_FULL[startNdx].time})🔹  end»#${endNdx} (${DATA_FULL[endNdx].time})`.colored(C.action));
+		DATA_TIMEFRAME.length = 0;
+		Object.assign(DATA_TIMEFRAME, DATA_FULL.slice(startNdx, endNdx+1));
+		G.currNdx.frame	= G.currNdx.full-startNdx;
+		G.spotsCount	= DATA_TIMEFRAME.length;
 
-		console.log(lowHighs);
 		Graph.draw();
 		CurrentSpotInfo.update();
-		DaysLowHigh.populate(lowHighs);
+		DaysLowHigh.populate();
 		setDayOptions(LowestCostPeriodCalculator);
 		setDayOptions(PeriodCostCalculator);
+		ChargingTimeCalculator.setChargeEnd(Config.cap);
+		ChargingTimeCalculator.setDuration();
+		LowestCostPeriodCalculator.setTimes(Config.start, Config.end);
 
-
-		if (G.missingDate != G.currTime.date && G.currNdx) {
-			ActiveSpotInfo.update(G.currNdx);
+		if (G.missingDate != G.currTime.date && G.currNdx.frame) {
+			ActiveSpotInfo.update(G.currNdx.frame);
 		}
 		else {
 			document.getElementById('error-fetch-day').style.display = 'block';
@@ -499,7 +528,7 @@
 			PeriodCostCalculator.hideApplyCurrentTime();
 		}
 
-		if (!DATA_MERGED.length) {
+		if (!DATA_FULL.length) {
 			LowestCostPeriodCalculator.disable();
 			PeriodCostCalculator.disable();
 		}
@@ -511,7 +540,8 @@
 		// SidePanels.open(K.cgfPanelId);
 		// setTimeout(() => LowestCostPeriodCalculator.run(),  500);
 		// setTimeout(() => PeriodCostCalculator.run(),  500);
-	});
+	}
+
 
 	//══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
 	// UTILITY FUNCTIONS
@@ -523,8 +553,7 @@
 	const mn2hm	= (n)	=> 	{ const x = n%1440; const p = [Math.floor(x/60), x%60]; return `${pad(p[0])}:${pad(p[1])}`};
 	const mn2day= (n)	=>	Math.floor(n/MINS_IN_DAY);
 	const qCnt	= (x)	=> 	Math.ceil((typeof x==='number' ? x : hm2mn(x))/15);
-	const qSpan = (n,b) =>	`${b?'from ':''}${DATA_MERGED[n].time} ${b?'to':'→'} ${DATA_MERGED[n+1]?.time||'00:00'}`;
-	const coloredVars 	=	(t,c,d) => { t='%c'+t; c=[c];for (const [k,v] of Object.entries(d)) {t+=` %c${k}:%c${v}`;c.push(C.info,C.value);} return [t,...c];};
+	const qSpan = (n,b) =>	`${b?'from ':''}${DATA_FULL[n].time} ${b?'to':'→'} ${DATA_FULL[n+1]?.time||'00:00'}`;
 	const periodTotal	=	(a, b)	=> DATA_MINUTES.slice(a, b).reduce((t, v) => t + v, 0);
 	const titled		= 	(s) 	=> s[0].toUpperCase()+s.slice(1).toLowerCase();
 	const pulse 		=	(i,c)	=> { i.animate([{ boxShadow: '0 0 0 20px transparent' }, { boxShadow: `0 0 0 0 ${c}`}], {duration: 500, iterations: 1}); };
@@ -551,11 +580,11 @@
 		calculator.tDay.value = G.dayEnd;
 	}
 
-	function updateCurrentTime() {
+	function updateCurrentTime(verbose=true) {
 		const now  = new IsoDate();
 		G.currTime = { day: now.date==DATES[1]?1:0,	date:now.date, hm: now.hrMn, hms: now.time }
-		if (DATES.includes(now.date)) G.currNdx = Math.floor(hm2mn(G.currTime.hm)/15)+96*G.currTime.day;
-		console.log(...coloredVars('Current time updated\n ', C.success, {date:G.currTime.date, 'day':G.currTime.day, time:G.currTime.hms, ndx: G.currNdx}));
+		if (DATES.includes(now.date)) G.currNdx.full = Math.floor(hm2mn(G.currTime.hm)/15)+SPOTS_IN_DAY*G.currTime.day;
+		verbose && console.log(`Current time updated🔸  date»${G.currTime.date}🔹 day»#${G.currTime.day}🔹 time»${G.currTime.hms}🔹 ndx»#${G.currNdx.full}`.colored(C.event));
 	}
 
 	function applyCurrentTime(obj) {
@@ -603,7 +632,13 @@
 
 		draw: function() {
 
-			const SIZE = this.SIZE
+			const SIZE = this.SIZE;
+
+			this.background.innerHTML = '';
+			this.timeframes.innerHTML = '';
+			this.axes.innerHTML		  = '';
+			this.datapoints.innerHTML = '';
+
 			{ // Update size
 				// Calculate the available size for the SVG and the data points area, taking into account the wrapper's margin and padding
 				const wrapW	= parseInt(getComputedStyle(document.querySelector('graph-wrap')).width.slice(0,-2));
@@ -641,20 +676,27 @@
 			};
 
 			{ // draw Makers and Datapoints
+				const padX	= this.padX+SIZE.dx+10/SIZE.dx, padXbg = this.padX+SIZE.dx/2;
 				const width	= SIZE.dx*4;
-				const padX	= this.padX+SIZE.dx, padXbg	 = this.padX+SIZE.dx/2;
-				let txtDtpts= '', txtDots = '',  txtBars = '';
-				let txtHr	= '', txtBg	  = '';
-				let bgClass	= 1;
+				let txtDtpts= '', 	txtDots = '',   txtBars = '';
+				let txtHr	= '', 	txtBg	= '';
+				let bgClass	= 1,	lastSep	= 0;
 				let x		= SIZE.dx;
 				// txtBg 		+= `<rect x="${this.padX+SIZE.dx/2}" y="${0}" width="${x}" height="${SIZE.svg.h}" class="bg0"/>`;
 				txtBg		+= `<line x1="${padXbg+x}" y="0" x2="${padXbg+x}" y2="${SIZE.svg.h-K.padVert+5}" class="y50"/>`;
-				for (const [i, spot] of DATA_MERGED.entries()) {
+				for (const [i, spot] of DATA_TIMEFRAME.entries()) {
 					const y		 = (spot.price-G.cyMin)*SIZE.dy;
+					const [hr,mn]= hmSplt(spot.time);
 					txtDtpts	+= `${x},${y} ${x+SIZE.dx},${y} `; // without flat quarters: `${x},${y} `
 					txtDots		+= `<circle id="cspt${i}" cx="${x}" cy="${y}" r="2"/>`;
 					txtBars 	+= `<rect id="spt${i}" x="${x-1}" y="0" width="3" height="${SIZE.svg.h}" fill="transparent"/>`;
-					if (i%4==0) {
+					if (hr+mn==0 && i>0) {
+						let p  = x+SIZE.dx/2;
+						txtBg += `<line x1="${this.padX+p}" y="0" x2="${this.padX+p}" y2="${SIZE.svg.h-K.padVert+5}" class="y100"/>`;
+						this.addDayInfo(0, p, lastSep);
+						lastSep +=p;
+					}
+					if (mn==0) {
 						txtBg 	+= `<rect x="${padXbg+x}" y="0" width="${width+SIZE.dy}" height="${SIZE.svg.h}" class="bg${1+bgClass}"/>`;
 						txtHr 	+= `<text x="${padX+x}" y="${SIZE.svg.h-5}">${spot.time.slice(0,2)}</text>`;
 						bgClass	 = 1-bgClass;
@@ -663,14 +705,12 @@
 						txtBg += `<line x1="${padXbg+x}" y="0" x2="${padXbg+x}" y2="${SIZE.svg.h-K.padVert+5}" class="y25"/>`;
 					x += SIZE.dx;
 				}
-				txtHr += `<text x="${ this.padX+x+SIZE.dx}" y="${SIZE.svg.h-5}">00</text>`;
-				x = this.padX+SIZE.dx+x/2
-				if (!G.missingDate)
-					txtBg += `<line x1="${x}" y="0" x2="${x}" y2="${SIZE.svg.h-K.padVert+5}" class="y100"/>`;
+				if (DATA_TIMEFRAME.at(-1).time == '23:45') // add midnight when relevant
+					txtHr += `<text x="${ padX+x}" y="${SIZE.svg.h-5}">00</text>`;
+				this.addDayInfo(DATES.length-1, x, lastSep);
 
 				this.background.innerHTML = txtBg;
 				this.axes.innerHTML 	 += `<g class="abscissa">${txtHr}</g>`;
-				this.axes.innerHTML 	 += this.dayInfo(0, width)+this.dayInfo(1, width);
 				this.datapoints.innerHTML = `<polyline points="${txtDtpts.trim()}"/>${txtDots}${txtBars}`;
 				this.datapoints.querySelectorAll('rect').forEach(item => {
 					item.addEventListener('mouseover', () => ActiveSpotInfo.update(item));
@@ -679,19 +719,19 @@
 			this.updateCurrentSpot();
 		},
 
-		updateCurrentSpot: function () {
-			this.currSpot && this.currSpot.classList.remove('current');
-			this.currSpot =  document.getElementById(`cspt${G.currNdx}`);
-			this.currSpot?.classList.add('current');
-		},
-
-		dayInfo: function(n, width) {
+		addDayInfo: function(n, px, prev) {
 			if (n>=DATES.length) return '';
-			let x	= this.padX+width*(12+24*n);
+			let x	= this.padX+prev+(px-prev)/2;
 			let txt = `<text x="${x}" y="${14}" class="date">${titled(G.dayLabels[n])}</text>`;
 			if (G.dayLabels[n] != G.fullDates[n])
 				txt+= `<text x="${x}" y="${32}" class="subdate">${G.fullDates[n]}</text>`;
-			return txt;
+			this.axes.innerHTML += txt;
+		},
+
+		updateCurrentSpot: function () {
+			this.currSpot && this.currSpot.classList.remove('current');
+			this.currSpot =  document.getElementById(`cspt${G.currNdx.frame}`);
+			this.currSpot?.classList.add('current');
 		},
 
 		resetTimeframes: function() {
@@ -707,6 +747,7 @@
 			this.timeframes.innerHTML += `<rect x="${x}" y="0" width="${w}" height="${this.SIZE.svg.h}" ${style}/>`;
 		}
 	};
+
 
 	const ActiveSpotInfo = {
 
@@ -731,9 +772,9 @@
 				G.activeSpot.classList.add('active');
 				G.activeCrcl.classList.add('active');
 			}
-			this.title.textContent = G.dayLabels[Math.floor(id/96)];
-			this.time .textContent = qSpan(id);
-			this.price.textContent = DATA_MERGED[id].price;
+			this.title.textContent = G.dayLabels[Math.floor(id/SPOTS_IN_DAY)];
+			this.time .textContent = qSpan(DATA_TIMEFRAME[0].id+id);
+			this.price.textContent = DATA_TIMEFRAME[id].price;
 		}
 	};
 
@@ -741,8 +782,7 @@
 	const CurrentSpotInfo = {
 
 		init: function() {
-			const box	= document.querySelector('boxinfo-curr');
-			if (!box) throw new ReferenceError('\nNo info-curr element found.');
+			const box	= document.querySelector('boxinfo-curr'); if (!box) throw new ReferenceError('\nNo info-curr element found.'); // <<<< ||
 			this.wrapper= box;
 			this.price	= document.getElementById('curr-price');
 			this.time	= document.getElementById('curr-time');
@@ -750,19 +790,17 @@
 		},
 
 		update: function(verbose=true) {
-			updateCurrentTime();
-			if (G.missingDate == G.currTime.date || !G.currNdx) return;
-			this.price.innerText = DATA_MERGED[G.currNdx].price;
-			this.time .innerText = qSpan(G.currNdx);
+			if (G.missingDate == G.currTime.date || !G.currNdx.full) return;
+			this.price.innerText = DATA_FULL[G.currNdx.full].price;
+			this.time .innerText = qSpan(G.currNdx.full);
 			Graph.updateCurrentSpot();
 
-			const info	=  {date:G.currTime.date, '#day':G.currTime.day, time:G.currTime.hm}
 			const [m, s]= hmSplt(G.currTime.hms.slice(3));
 			const delay = 900 - (m*60+s)%900;
 
 			clearTimeout(this.timer);
-			this.timer = setTimeout(()=>this.update(), delay*1000);
-			verbose && console.log(...coloredVars('  Next refresh', C.info, {'in': `${Math.floor(delay/60)}mn${pad(delay%60)}s`}));
+			this.timer = setTimeout(execute, delay*1000);
+			verbose && console.log(`  Next refresh in» ${Math.floor(delay/60)}mn${pad(delay%60)}s`.colored());
 		},
 
 		hide: function() {
@@ -786,23 +824,24 @@
 			this.isSaved = false;
 			this.saveArw = document.getElementById('notif-cfg_save');
 			this.saveBtn = document.getElementById('btn-cfg_save');
-			document.getElementById('btn-cfg_reset').addEventListener('click', () => this.reset());
 			this.saveBtn.addEventListener('click', () => this.save());
 
-			this.populate();
-			this.invalidNum() ? SidePanels.open(K.cgfPanelId) : this.apply();
-
-			const check = (i, k) => { if (k=='Tab') return; normalizeNumber(this.inputs[i], 1, i=='cap'?50:1); this.invalidNum()};
+			const check	 = (i, k) => { if (k=='Tab') return; normalizeNumber(this.inputs[i], 1, i=='cap'?50:1); this.invalidNum()};
 			['speed', 'cap'].forEach(id => {
 				this.inputs[id].addEventListener('keyup',	(e) => check(id, e.key) );
 				this.inputs[id].addEventListener('change',	(e) => check(id) );
 			});
+			document.getElementById('btn-cfg_reset').addEventListener('click', () => this.reset());
+		},
+
+		load: function() {
+			this.populate();
+			this.invalidNum() ? SidePanels.open(K.cgfPanelId) : this.apply();
 		},
 
 		populate: function() {
-			for (const key of Object.keys(this.inputs)) {
+			for (const key of Object.keys(this.inputs))
 				this.inputs[key].value = localStorage.getItem(key)||this.default[key];
-			}
 			this.invalidNum(true);
 		},
 
@@ -838,11 +877,13 @@
 		apply: function() {
 			this.isSaved = true;
 			this.saveArw.style.visibility = 'hidden';
-			G.cpm = Math.min(parseInt(this.inputs.speed.value), 100)/60;
 			this.inputs.cap.value= Math.min(parseInt(this.inputs.cap.value), 100);
-			ChargingTimeCalculator.setChargeEnd(this.inputs.cap.value);
-			ChargingTimeCalculator.setDuration();
-			LowestCostPeriodCalculator.setTimes(this.inputs.start.value, this.inputs.end.value);
+			this.speed	= parseInt(this.inputs.speed.value);
+			this.cap	= parseInt(this.inputs.cap.value);
+			this.range	= parseInt(this.inputs.range.value);
+			this.start	= this.inputs.start.value;
+			this.end	= this.inputs.end.value;
+			execute(); /////<<<<< TODO: only if any value has changed
 		},
 
 		canClose: function () {
@@ -955,7 +996,7 @@
 		show: function(descPeriod, minsA, minsB, durMns, total) {
 			const tot	= total.toFixed(2);
 			const avg	= (total/durMns).toFixed(2);
-			console.log(...coloredVars('  ▶', C.success, {'total': tot, 'cost': avg}));
+			console.log(` ▶🔹 total»${tot}🔹  average cost»${avg}`.colored(C.event));
 			const dayA	= G.dayLabels[Math.floor(minsA/MINS_IN_DAY)];
 			const dayB	= G.dayLabels[Math.floor(minsB/MINS_IN_DAY)];
 			const hmA	= mn2hm(minsA);
@@ -1037,7 +1078,7 @@
 		run: function () {
 			if (!this.durat.value) return;
 			Graph.resetTimeframes();
-			console.log('%cCalculating cheapest period', C.action);
+			console.log('Calculating cheapest period'.colored(C.action));
 
 			const fDay	= parseInt(this.fDay.value);	const tDay	=parseInt(this.tDay.value);
 			const fTime = hm2mn(this.fTime.value);		const tTime = hm2mn(this.tTime.value);
@@ -1102,7 +1143,7 @@
 
 		run: function() {
 			Graph.resetTimeframes();
-			console.log('%cCalculating period cost', C.action);
+			console.log('Calculating period cost'.colored(C.action));
 
 			const fDay	= parseInt(this.fDay.value);	const tDay	=parseInt(this.tDay.value);
 			const fTime = hm2mn(this.fTime.value);		const tTime = hm2mn(this.tTime.value);
@@ -1130,12 +1171,14 @@
 
 	const DaysLowHigh = {
 
-		populate: function(days) {
-			for (const [i, data] of days.entries()) {
+		populate: function() {
+			for (const [i, data] of G.lowHighs.entries()) {
 				if (data) {
 					document.getElementById(`day${i}-date`		).innerText = titled(G.dayLabels[i]);
-					document.getElementById(`day${i}-low_price` ).innerText = DATA_MERGED[data[0]].price.toFixed(2);
-					document.getElementById(`day${i}-high_price`).innerText = DATA_MERGED[data[1]].price.toFixed(2);
+					document.getElementById(`day${i}-low_price` ).innerText = DATA_FULL[data[0]].price.toFixed(2);
+					document.getElementById(`day${i}-high_price`).innerText = DATA_FULL[data[1]].price.toFixed(2);
+					document.getElementById(`day${i}-avrg_price`).innerText = (DATA[DATES[i]].reduce((t, s) => t + s.price, 0)/SPOTS_IN_DAY).toFixed(2);
+					document.getElementById(`day${i}-medn_price`).innerText = DATA[DATES[i]].map(s => s.price).sort((a, b) => a-b)[Math.floor(SPOTS_IN_DAY/2)];
 					document.getElementById(`day${i}-low_times` ).innerText = qSpan(data[0], true);
 					document.getElementById(`day${i}-high_times`).innerText = qSpan(data[1], true);
 				}
@@ -1149,15 +1192,11 @@
 
 
 	function logInterval(name, fDay, fTime, fMins, tDay, tTime, tMins, durat) {
-		console.log(...coloredVars('', null,
-			{  'from day':fDay+1, time: fTime, 'minutes': fMins,
-			'\n   to day':tDay+1, timе: tTime, 'minutеs': tMins,
-			[`\n             ${name.padStart(9)} minutes` ]: durat}));
+		console.log((` from🔹 day»${fDay+1}🔹 time»${fTime}🔹 minutes»${fMins}🔸`+
+					 `   to🔹 day»${tDay+1}🔹 timе»${tTime}🔹 minutеs»${tMins}🔸`+
+					 ` ${name.padStart(21)}🔹 minutes»${durat}`).colored(C.dimmed));
 	}
 
-	function logCost(total, cost) {
-		console.log(...coloredVars('  ▶', C.success, {'total': total, 'cost': cost}));
-	}
 
 
 	//══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
