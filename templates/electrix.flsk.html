@@ -432,6 +432,7 @@
 		document.getElementById('btn+15' )	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowRight'  })); });
 		document.getElementById('btn+60' )	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowRight', ctrlKey: true})); });
 		document.getElementById('btn+360')	.addEventListener('click', () => { window.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowRight', shiftKey: true})); });
+		document.querySelector('h1')		.addEventListener('click', () => { window.location.reload(); });
 		document.querySelectorAll('input[type=number]').forEach(item => item.addEventListener('click', e=> item.select()));
 
 		const _addMinutes = (x) => { for (var i=0; i<15; i++) DATA_MINUTES.push(x.price) };
