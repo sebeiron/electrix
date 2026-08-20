@@ -740,10 +740,10 @@
 		},
 
 		addTimeframe: function(aMinsStart, aMinsEnd, aColor) {
-			const xStart= Math.floor(aMinsStart/15);
-			const xEnd	= Math.ceil(aMinsEnd/15);
-			const x = this.padX+xStart*this.SIZE.dx + this.SIZE.dx*2 -1;
-			const w = (xEnd-xStart)*this.SIZE.dx + this.SIZE.dx   +2;
+			const xStart= Math.floor((aMinsStart-DATA_TIMEFRAME[0].minutes)/15);
+			const xEnd	= Math.ceil( (aMinsEnd  -DATA_TIMEFRAME[0].minutes)/15);
+			const x 	= this.padX+xStart*this.SIZE.dx + this.SIZE.dx*2 -1;
+			const w 	= (xEnd-xStart)*this.SIZE.dx + this.SIZE.dx   +2;
 			const style = aColor===false ? 'class="periodError"' : `fill="${aColor}"`;
 			this.timeframes.innerHTML += `<rect x="${x}" y="0" width="${w}" height="${this.SIZE.svg.h}" ${style}/>`;
 		}
@@ -1086,14 +1086,13 @@
 			const fMins = fTime+fDay*MINS_IN_DAY;		const tMins = tTime+tDay*MINS_IN_DAY;
 			const durMns= hm2mn(this.durat.value);
 			const frmMns= tMins-fMins;
-			logInterval('period', fDay, this.fTime.value, fMins, tDay, this.tTime.value, tMins, durMns );
+			logInterval('period', fDay, this.fTime.value, fMins, tDay, this.tTime.value, tMins, frmMns );
 
 			if (frmMns<=0) {
 				Results.error('The time frame\'s end time must be later than its start time.');
 				this.tTime.focus()
 				return;
 			}
-			Graph.addTimeframe(fMins, tMins, C.timeframe);
 			if (frmMns<durMns) {
 				Results.error('The requested duration must not exceed the time frame.');
 				Graph.addTimeframe(fMins, fMins+durMns, false);
@@ -1101,6 +1100,7 @@
 				return;
 			}
 
+			Graph.addTimeframe(fMins, tMins, C.timeframe);
 			let minsA	= 0, minsB =0, end = 0;
 			let bestTot = Infinity;
 			const limit = tMins-durMns;
@@ -1113,7 +1113,7 @@
 					bestTot	=total;
 				}
 			}
-			logInterval('timeframe', Math.floor(minsA/MINS_IN_DAY), mn2hm(minsA), minsA, Math.floor(minsB/MINS_IN_DAY), mn2hm(minsB), minsB, frmMns );
+			logInterval('timeframe', Math.floor(minsA/MINS_IN_DAY), mn2hm(minsA), minsA, Math.floor(minsB/MINS_IN_DAY), mn2hm(minsB), minsB, minsB-minsA);
 			Results.show('Lower cost period', minsA, minsB, durMns, bestTot);
 			Graph.addTimeframe(minsA, minsB, C.period);
 		},
